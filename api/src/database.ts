@@ -92,6 +92,10 @@ export interface VehicleBookingLogsDocument extends mongoose.Document {
      */
     event: string;
     /**
+    * The target city (displayname).
+    */
+    city: string;
+    /**
      * The message data.
      */
     message?: any;
@@ -125,6 +129,10 @@ export interface VehicleBookingsDocument extends mongoose.Document {
      * The status.
      */
     status: string;
+    /**
+    * The target city (displayname).
+    */
+    city: string;
     /**
      * The timestamp (UTC).
      */
@@ -626,6 +634,7 @@ export async function vehicleBookingToJSON(
         from: moment.utc(doc.from)
             .toISOString(),
         id: doc.id,
+        city: doc.city,
         status: egoose.normalizeString(doc.status),
         time: moment.utc(doc.time)
             .toISOString(),

@@ -5,6 +5,7 @@ struct Booking: Codable {
         case unknown, new
     }
     let event: String
+    let city: String?
     let id: String
     let from: Date
     let until: Date

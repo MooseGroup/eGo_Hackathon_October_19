@@ -17,6 +17,9 @@
     <v-col sm="3">
       <DatetimePicker label="Until" v-model="dateUntil"></DatetimePicker>
     </v-col>
+    <v-col sm="3">
+      <v-text-field label="Solo" solo v-model="city"></v-text-field>
+    </v-col>
     <v-col sm="3" class="pt-4">
       <v-btn @click="addBooking">
         <v-icon left>fa-plus</v-icon>Add
@@ -37,6 +40,7 @@ export default {
   data() {
     return {
       vehicle: null,
+      city: null,
       dateFrom: null,
       dateUntil: null
     };
@@ -53,7 +57,8 @@ export default {
           `vehicles/${this.vehicle.id}/bookings`,
           {
             from: this.dateFrom.toISOString(),
-            until: this.dateUntil.toISOString()
+            until: this.dateUntil.toISOString(),
+            city: this.city
           },
           this.$root.axiosOptions
         )

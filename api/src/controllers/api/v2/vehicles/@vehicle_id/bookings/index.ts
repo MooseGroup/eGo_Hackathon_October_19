@@ -29,6 +29,7 @@ import { VehicleBooking } from '../../../../../../contracts';
 interface NewVehicleBooking {
     from: string;
     until: string;
+    city: string;
 }
 
 const SCHEMA_NEW_VEHICLE_BOOKING = joi.object({
@@ -40,6 +41,7 @@ const SCHEMA_NEW_VEHICLE_BOOKING = joi.object({
         .trim()
         .isoDate()
         .required(),
+    'city': joi.string().required()
 });
 
 
@@ -227,6 +229,7 @@ export class Controller extends APIv2VehicleControllerBase {
                     'from': moment.utc(NEW_BOOKING.from)
                         .toDate(),
                     'status': 'new',
+                    'city': NEW_BOOKING.city,
                     'until': moment.utc(NEW_BOOKING.until)
                         .toDate(),
                     'vehicle_id': req.vehicle.id,
@@ -234,6 +237,7 @@ export class Controller extends APIv2VehicleControllerBase {
 
                 const BOOKING: VehicleBooking = {
                     event: NEW_DOC.event,
+                    city: NEW_DOC.city,
                     from: moment.utc(NEW_DOC.from),
                     id: NEW_DOC.id,
                     status: NEW_DOC.status,

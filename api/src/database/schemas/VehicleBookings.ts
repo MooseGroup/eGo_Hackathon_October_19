@@ -41,6 +41,11 @@ export const SCHEMA: mongoose.SchemaDefinition = {
     until: {
         type: Date,
     },
+    city: {
+        lowercase: false,
+        trim: true,
+        type: String,
+    },
     vehicle_id: {
         lowercase: true,
         trim: true,
@@ -50,6 +55,7 @@ export const SCHEMA: mongoose.SchemaDefinition = {
 
 export function setupSchema(schema: mongoose.Schema, name: string) {
     schema.index({ event: 1 });
+    schema.index({ city: 1 });
     schema.index({ status: 1 });
     schema.index({ vehicle_id: 1, event: 1 });
     schema.index({ vehicle_id: 1, event: 1, status: 1 });

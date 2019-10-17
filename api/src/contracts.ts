@@ -147,6 +147,10 @@ export interface VehicleBooking {
      */
     readonly event: string;
     /**
+    * The target city (displayname).
+    */
+    readonly city: string;
+    /**
      * The start date.
      */
     readonly from: moment.Moment;
