@@ -29,6 +29,7 @@ import { VehicleBooking } from '../../../../../../contracts';
 interface NewVehicleBooking {
     from: string;
     until: string;
+    displayName: string;
     city: string;
     cityLat: number;
     cityLng: number;
@@ -47,6 +48,7 @@ const SCHEMA_NEW_VEHICLE_BOOKING = joi.object({
         .required(),
     'city': joi.string().required(),
     'cityLat': joi.number().required(),
+    'displayName': joi.string().required(),
     'cityLng': joi.number().required(),
     'seatsAvailable': joi.number().required(),
     'seatsTotal': joi.number().required()
@@ -238,6 +240,7 @@ export class Controller extends APIv2VehicleControllerBase {
                         .toDate(),
                     'status': 'new',
                     'city': NEW_BOOKING.city,
+                    'displayName': NEW_BOOKING.displayName,
                     'cityLng': NEW_BOOKING.cityLng,
                     'cityLat': NEW_BOOKING.cityLat,
                     'seatsTotal': NEW_BOOKING.seatsTotal,
@@ -249,6 +252,7 @@ export class Controller extends APIv2VehicleControllerBase {
 
                 const BOOKING: VehicleBooking = {
                     event: NEW_DOC.event,
+                    displayName: NEW_DOC.displayName,
                     city: NEW_DOC.city,
                     cityLat: NEW_DOC.cityLat,
                     cityLng: NEW_DOC.cityLng,

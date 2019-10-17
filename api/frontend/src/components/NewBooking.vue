@@ -12,6 +12,9 @@
       ></v-select>
     </v-col>
     <v-col sm="3">
+      <v-text-field label="Display Name" solo v-model="displayName"></v-text-field>
+    </v-col>
+    <v-col sm="3">
       <DatetimePicker label="From" v-model="dateFrom"></DatetimePicker>
     </v-col>
     <v-col sm="3">
@@ -52,6 +55,7 @@ export default {
   data() {
     return {
       vehicle: null,
+      displayName: null,
       city: null,
       cityLat: null,
       cityLng: null,
@@ -74,6 +78,7 @@ export default {
           {
             from: this.dateFrom.toISOString(),
             until: this.dateUntil.toISOString(),
+            displayName: this.displayName,
             city: this.city,
             cityLat: this.cityLat,
             cityLng: this.cityLng,

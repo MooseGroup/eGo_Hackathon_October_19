@@ -147,6 +147,10 @@ export interface VehicleBooking {
      */
     readonly event: string;
     /**
+    * The booking's displayname.
+    */
+    readonly displayName: string;
+    /**
     * The target city (displayname).
     */
     readonly city: string;

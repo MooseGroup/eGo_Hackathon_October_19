@@ -97,6 +97,7 @@ export abstract class APIv2VehicleBookingControllerBase extends APIv2ControllerB
                                             event: egoose.normalizeString(BOOKING_DOC.event),
                                             from: moment.utc(BOOKING_DOC.from),
                                             city: BOOKING_DOC.city,
+                                            displayName: BOOKING_DOC.displayName,
                                             cityLat: BOOKING_DOC.cityLat,
                                             cityLng: BOOKING_DOC.cityLng,
                                             seatsAvailable: BOOKING_DOC.seatsAvailable,

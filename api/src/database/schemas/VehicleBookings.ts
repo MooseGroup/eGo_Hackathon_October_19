@@ -41,6 +41,11 @@ export const SCHEMA: mongoose.SchemaDefinition = {
     until: {
         type: Date,
     },
+    displayName: {
+        lowercase: false,
+        trim: true,
+        type: String,
+    },
     city: {
         lowercase: false,
         trim: true,
@@ -67,6 +72,7 @@ export const SCHEMA: mongoose.SchemaDefinition = {
 
 export function setupSchema(schema: mongoose.Schema, name: string) {
     schema.index({ event: 1 });
+    schema.index({ displayName: 1 });
     schema.index({ city: 1 });
     schema.index({ cityLat: 1 });
     schema.index({ cityLng: 1 });

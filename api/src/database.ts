@@ -92,6 +92,10 @@ export interface VehicleBookingLogsDocument extends mongoose.Document {
      */
     event: string;
     /**
+    * The booking's displayname.
+    */
+    displayName: string;
+    /**
     * The target city (displayname).
     */
     city: string;
@@ -145,6 +149,10 @@ export interface VehicleBookingsDocument extends mongoose.Document {
      * The status.
      */
     status: string;
+    /**
+    * The booking's displayname.
+    */
+    displayName: string;
     /**
     * The target city (displayname).
     */
@@ -667,6 +675,7 @@ export async function vehicleBookingToJSON(
             .toISOString(),
         id: doc.id,
         city: doc.city,
+        displayName: doc.displayName,
         cityLat: doc.cityLat,
         cityLng: doc.cityLng,
         seatsAvailable: doc.seatsAvailable,
