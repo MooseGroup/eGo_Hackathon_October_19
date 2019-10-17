@@ -49,6 +49,7 @@ class SeatNumberViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
-        
+        let success = SuccessViewController()
+        show(success, sender: nil)
     }
 }

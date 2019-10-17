@@ -8,6 +8,7 @@ extension BookingsEndpoint {
 
     @discardableResult
     func getBookings(completion: @escaping (Result<APIResponse<[Booking]>>) -> Void) -> URLRequest {
-        return Endpoint("bookings", method: .GET).request(client: networkClient, completion)
+        completion(Result.failure(NSError(domain: "mooose", code: -1, userInfo: nil)))
+        return Endpoint("booking", method: .GET).request(client: networkClient, completion)
     }
 }
