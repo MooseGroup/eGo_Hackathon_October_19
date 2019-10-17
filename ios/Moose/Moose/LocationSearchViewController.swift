@@ -27,6 +27,7 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
         self.navigationItem.largeTitleDisplayMode = .never
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = 10000
         locationManager.requestLocation()
         
         // Prepare to hide keyboard when pressed outside of textfield
@@ -43,8 +44,8 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
-        map.setRegion(region, animated: true)
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 20000, longitudinalMeters: 20000)
+        map.setRegion(map.regionThatFits(region), animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -52,10 +53,10 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     // MARK: Setup
-    
+    var search: SearchViewController?
     private func setUpSearch() {
         let child = SearchViewController()
-        
+        search = child
         // Add self as delegate so we get notified of a location selection
         child.delegate = self
         
@@ -84,9 +85,9 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     
     /// Check wether we have exsisting bookings and continue with our flow accordingly.
     private func processModelAndContinue(model: SearchModel) {
-        self.view.isUserInteractionEnabled = false
+        self.search?.view.isUserInteractionEnabled = false
         DispatchQueue.main.async {
-            self.view.isUserInteractionEnabled = true
+            self.search?.view.isUserInteractionEnabled = true
             
             // TODO: Request all bookings from backend and see if a booking for this location is all ready available
             if true {
@@ -116,6 +117,24 @@ extension LocationSearchViewController: MKMapViewDelegate {
 
 extension LocationSearchViewController: SearchViewControllerDelegate {
     func didSelect(model: SearchModel) {
+        let annotation = ResultAnnotation(model)
+        self.map.addAnnotation(annotation)
+        let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        self.map.setRegion(self.map.regionThatFits(region), animated: true)
+        self.view.endEditing(false)
+        search?.dismiss()
         processModelAndContinue(model: model)
+    }
+}
+
+class ResultAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D {
+        return searchModel.location ?? CLLocationCoordinate2D(latitude: -1, longitude: -1)
+    }
+    
+    let searchModel: SearchModel
+
+    init(_ model: SearchModel) {
+        searchModel = model
     }
 }
