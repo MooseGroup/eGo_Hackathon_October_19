@@ -39,4 +39,9 @@ class DatePickerViewController: UITableViewController {
         booking.from = startPicker.date
         booking.until = endPicker.date
     }
+    
+    @IBAction func book(_ sender: Any) {
+        let next = SeatNumberViewController(booking: booking)
+        show(next, sender: self)
+    }
 }

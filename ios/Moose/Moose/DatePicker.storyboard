@@ -86,12 +86,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLN-ZR-9Rz">
-                                                    <rect key="frame" x="190" y="7" width="35" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLN-ZR-9Rz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                                     <state key="normal" title="Book"/>
+                                                    <connections>
+                                                        <action selector="book:" destination="x7X-ZW-oa1" eventType="primaryActionTriggered" id="say-1E-F9q"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="zLN-ZR-9Rz" secondAttribute="trailing" id="FNf-5Q-C0b"/>
+                                                <constraint firstAttribute="bottom" secondItem="zLN-ZR-9Rz" secondAttribute="bottom" id="Kyk-65-HV6"/>
+                                                <constraint firstItem="zLN-ZR-9Rz" firstAttribute="top" secondItem="SJi-IF-BhC" secondAttribute="top" id="fDG-0T-JqS"/>
+                                                <constraint firstItem="zLN-ZR-9Rz" firstAttribute="leading" secondItem="SJi-IF-BhC" secondAttribute="leading" id="kcr-aM-Vfz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
