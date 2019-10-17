@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let api = APIClient()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.view.backgroundColor = .green
+
+        api.bookings.getBookings { result in
+            print(result.value)
+        }
     }
-
-
 }
 
