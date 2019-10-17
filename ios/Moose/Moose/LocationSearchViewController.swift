@@ -16,7 +16,6 @@ class LocationSearchViewController: UIViewController {
 
         self.title = NSLocalizedString("Where to?", comment: "Title for the location search vc.")
         self.navigationItem.largeTitleDisplayMode = .never
-        // Do any additional setup after loading the view.
     }
     
     override func loadView() {
@@ -40,6 +39,10 @@ class LocationSearchViewController: UIViewController {
 //        ])
         
         let child = SearchViewController()
+        
+        // Add self as delegate
+        child.delegate = self
+        
         self.addChild(child)
         self.view.addSubview(child.view)
         child.view.translatesAutoresizingMaskIntoConstraints = false
@@ -59,3 +62,8 @@ extension LocationSearchViewController: MKMapViewDelegate {
     }
 }
 
+extension LocationSearchViewController: SearchViewControllerDelegate {
+    func didSelect(model: SearchModel) {
+        print("\(model)")
+    }
+}

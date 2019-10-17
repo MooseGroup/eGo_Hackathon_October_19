@@ -9,6 +9,10 @@
 import UIKit
 import CoreLocation
 
+protocol SearchViewControllerDelegate: class {
+    func didSelect(model: SearchModel)
+}
+
 struct SearchModel: Codable, Hashable, Equatable {
     var name: String?
     var title: String?
@@ -53,6 +57,11 @@ class SearchProvider: NSObject {
 }
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
+    
+    // MARK: Properties
+    
+    @IBOutlet var tableView: UITableView!
+    weak var delegate: SearchViewControllerDelegate?
     let useDiffable = false
 
     var results: [SearchModel] = [] {
@@ -71,7 +80,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBOutlet var tableView: UITableView!
     lazy var dataSource: UITableViewDiffableDataSource<String, SearchModel> = {
         let ds: UITableViewDiffableDataSource<String, SearchModel> = UITableViewDiffableDataSource(tableView: self.tableView!) { (tv, indexPath, model) -> UITableViewCell? in
             let cell: UITableViewCell = tv.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -82,22 +90,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         return ds
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        _ = SearchProvider.shared
-        if useDiffable {
-            self.tableView.dataSource = dataSource
-        } else {
-            self.tableView.dataSource = self
-        }
-        self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.backgroundColor = .clear
-        self.tableView.tableFooterView = UIView()
-        
-        // Do any additional setup after loading the view.
-    }
-
+    // MARK: View Lifecycle
+    
     init() {
         super.init(nibName: "SearchViewController", bundle: nil)
     }
@@ -106,10 +100,35 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.init(coder: coder)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        _ = SearchProvider.shared
+        if useDiffable {
+            self.tableView.dataSource = dataSource
+        } else {
+            self.tableView.dataSource = self
+        }
+        self.tableView.delegate = self
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.backgroundColor = .clear
+        self.tableView.tableFooterView = UIView()
+    }
+
+    // MARK: Interactions
+
     @IBAction func refreshTableView(_ sender: UITextField) {
         guard let text = sender.text else { return }
         let results = Array(Set(SearchProvider.shared.results(query: text)))
         self.results = results
+    }
+
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let search = results[indexPath.row]
+        delegate?.didSelect(model: search)
     }
 }
 
