@@ -8,13 +8,16 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
-class LocationSearchViewController: UIViewController {
+class LocationSearchViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: Properties
     
     let api = APIClient()
+    let locationManager = CLLocationManager()
+    var map: MKMapView!
     
     // MARK: View Lifecycle
     
@@ -23,6 +26,9 @@ class LocationSearchViewController: UIViewController {
 
         self.title = NSLocalizedString("Where to?", comment: "Title for the location search vc.")
         self.navigationItem.largeTitleDisplayMode = .never
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.requestLocation()
     }
     
     override func loadView() {
@@ -30,6 +36,18 @@ class LocationSearchViewController: UIViewController {
         
         setUpMap()
         setUpSearch()
+    }
+    
+    // MARK: Location
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        map.setRegion(region, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // Whatever.
     }
     
     // MARK: Setup
@@ -55,6 +73,8 @@ class LocationSearchViewController: UIViewController {
     private func setUpMap() {
         let map = MKMapView(frame: self.view.bounds)
         map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        map.showsUserLocation = true
+        self.map = map
         self.view.addSubview(map)
         map.delegate = self
     }

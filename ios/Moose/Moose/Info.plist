@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location will be sold to anybody who wants to give us dollars, except facebook.</string>
 	<key>API</key>
 	<dict>
 		<key>API_BASE_URL</key>
