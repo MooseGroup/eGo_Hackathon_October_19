@@ -16,6 +16,11 @@ struct DefaultAPIConfig: APIConfiguration {
     init() {}
 }
 
+struct APIResponse<T: Codable>: Codable {
+    let success: Bool
+    let data: T
+}
+
 struct Endpoint: Requestable {
     let path: String
     let method: HTTPMethod
@@ -25,14 +30,14 @@ struct Endpoint: Requestable {
     let configuration: APIConfiguration
     init(_ path: String,
          method: HTTPMethod = .GET,
-         parameter: HTTPParameter? = nil,
-         body: JSON? = nil,
+         parameter: Encodable? = nil,
+         body: Encodable? = nil,
          header: HTTPHeader? = nil,
          configuration: APIConfiguration = DefaultAPIConfig()) {
         self.path = path
         self.method = method
-        self.parameter = parameter
-        self.body = body
+        self.parameter = parameter?.json
+        self.body = body?.json
         self.header = header
         self.configuration = configuration
     }

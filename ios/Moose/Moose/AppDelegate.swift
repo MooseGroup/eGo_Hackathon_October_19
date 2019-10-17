@@ -11,10 +11,23 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+
+        // Fetch vehcicles
+        let client = APIClient()
+        client.vehicles.getVehicles { (result) in
+            guard let vehicle = result.value?.data.first else { return }
+            let booking = Booking(id: UUID().uuidString, event: "Event", city: "Aachen", cityLat: 50.1, cityLng: 6.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Seed", from: Date(), until: Date(), time: Date(), status: .new, vehicle: vehicle)
+            client.vehicles.createNewBooking(booking) { (res) in
+                print(res)
+                
+            }
+        }
+//
+//        APIClient().bookings.getBookings { (result) in
+//            print(result)
+//        }
         return true
     }
 

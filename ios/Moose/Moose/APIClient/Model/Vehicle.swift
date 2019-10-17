@@ -6,7 +6,7 @@ struct Vehicle: Codable {
     }
     var id: String
     var country: String
-    var environment: Environment
+    var environment: Environment?
     var licensePlate: String
     var manufacturer: String
     var model: String
