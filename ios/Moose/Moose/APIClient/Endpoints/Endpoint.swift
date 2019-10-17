@@ -7,6 +7,9 @@ struct DefaultAPIConfig: APIConfiguration {
     var authenticationTokenHeader: HTTPHeader {
         return ["X-Api-Key": bundle.api.apiKey]
     }
+    var acceptHeader: HTTPHeader {
+        return ["accept": "application/json"]
+    }
     var baseURL: URL {
         return bundle.api.baseURL
     }

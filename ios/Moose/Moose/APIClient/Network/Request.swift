@@ -15,6 +15,7 @@ enum HTTPMethod: String {
 protocol APIConfiguration {
     var baseURL: URL { get }
     var authenticationTokenHeader: HTTPHeader { get }
+    var acceptHeader: HTTPHeader { get }
 }
 
 protocol Requestable {
@@ -35,6 +36,7 @@ extension Requestable {
         request.httpMethod = method.rawValue
         var headerFields = header ?? [:]
         headerFields.merge(configuration.authenticationTokenHeader, uniquingKeysWith: +)
+        headerFields.merge(configuration.acceptHeader, uniquingKeysWith: +)
         request.allHTTPHeaderFields = headerFields
         if let parameter = parameter, let url = request.url {
             request.url = url.appendingQuery(parameter)

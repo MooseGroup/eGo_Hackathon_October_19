@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        api.bookings.bookings(.GET) { result in
+        api.bookings.getBookings { result in
             print(result.value)
         }
     }

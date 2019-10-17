@@ -30,13 +30,21 @@ extension Decodable {
         }
         do {
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601ms)
             let model = try decoder.decode(self, from: response.data) as Self
             return .success(model)
         } catch let error {
             return .failure(error)
         }
     }
+}
+
+extension DateFormatter {
+    static let iso8601ms: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter
+    }()
 }
 
 enum SerializationError: Error, LocalizedError {

@@ -29,7 +29,6 @@
 		72DCAF6623588FCC00EAD63D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF6523588FCC00EAD63D /* Vehicle.swift */; };
 		72DCAF682358900C00EAD63D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF672358900C00EAD63D /* Environment.swift */; };
 		72DCAF6A2358903B00EAD63D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF692358903B00EAD63D /* Team.swift */; };
-		72DCAF6F23589BE500EAD63D /* Bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF6E23589BE500EAD63D /* Bookings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +57,6 @@
 		72DCAF6523588FCC00EAD63D /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		72DCAF672358900C00EAD63D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		72DCAF692358903B00EAD63D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		72DCAF6E23589BE500EAD63D /* Bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +138,6 @@
 		72DCAF2523588D0700EAD63D /* Bookings */ = {
 			isa = PBXGroup;
 			children = (
-				72DCAF6B2358955D00EAD63D /* Model */,
 				72DCAF2623588D0700EAD63D /* BookingEndpoint.swift */,
 			);
 			path = Bookings;
@@ -174,14 +171,6 @@
 				72DCAF6123588D6200EAD63D /* VehicleEndpoint.swift */,
 			);
 			path = Vehicle;
-			sourceTree = "<group>";
-		};
-		72DCAF6B2358955D00EAD63D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				72DCAF6E23589BE500EAD63D /* Bookings.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +261,6 @@
 				72DCAF682358900C00EAD63D /* Environment.swift in Sources */,
 				72DCAF5723588D0700EAD63D /* NetworkClient.swift in Sources */,
 				72DCAF6223588D6200EAD63D /* VehicleEndpoint.swift in Sources */,
-				72DCAF6F23589BE500EAD63D /* Bookings.swift in Sources */,
 				72DCAF4323588D0700EAD63D /* Result+Errors.swift in Sources */,
 				72DCAF5923588D0700EAD63D /* Response.swift in Sources */,
 			);
@@ -417,7 +405,7 @@
 		72DCAF0E23588B8100EAD63D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "192.168.66.26:8080/api/v2/";
+				API_BASE_URL = "http://192.168.66.26/api/v2/";
 				API_KEY = ego;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -437,7 +425,7 @@
 		72DCAF0F23588B8100EAD63D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "192.168.66.26:8080/api/v2/";
+				API_BASE_URL = "http://192.168.66.26/api/v2/";
 				API_KEY = ego;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
