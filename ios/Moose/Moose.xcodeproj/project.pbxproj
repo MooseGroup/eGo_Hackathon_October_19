@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		236A36B92358D91F000BF752 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A36B82358D91F000BF752 /* BookingView.swift */; };
+		236A36BB2358D92E000BF752 /* BookingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 236A36BA2358D92E000BF752 /* BookingView.xib */; };
+		236A36BD2358E2EC000BF752 /* Bundle+XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A36BC2358E2EC000BF752 /* Bundle+XIB.swift */; };
+		236A36C02358E5A6000BF752 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236A36BF2358E5A6000BF752 /* UIView+Autolayout.swift */; };
 		2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */; };
 		2370EF022358AD2D0091BEC3 /* ExsistingBookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */; };
 		2370EF0A2358B7290091BEC3 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EF082358B7290091BEC3 /* BookingTableViewController.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		236A36B82358D91F000BF752 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
+		236A36BA2358D92E000BF752 /* BookingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingView.xib; sourceTree = "<group>"; };
+		236A36BC2358E2EC000BF752 /* Bundle+XIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+XIB.swift"; sourceTree = "<group>"; };
+		236A36BF2358E5A6000BF752 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExsistingBookingViewController.swift; sourceTree = "<group>"; };
 		2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExsistingBookingViewController.xib; sourceTree = "<group>"; };
 		2370EF082358B7290091BEC3 /* BookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +90,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		236A36B52358D8C6000BF752 /* BookingTableView */ = {
+			isa = PBXGroup;
+			children = (
+				2370EF082358B7290091BEC3 /* BookingTableViewController.swift */,
+				2370EF092358B7290091BEC3 /* BookingTableViewController.xib */,
+				236A36B82358D91F000BF752 /* BookingView.swift */,
+				236A36BA2358D92E000BF752 /* BookingView.xib */,
+			);
+			path = BookingTableView;
+			sourceTree = "<group>";
+		};
+		236A36BE2358E2F8000BF752 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				236A36BC2358E2EC000BF752 /* Bundle+XIB.swift */,
+				236A36BF2358E5A6000BF752 /* UIView+Autolayout.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2370EF032358AD4E0091BEC3 /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +138,7 @@
 			children = (
 				2370EF032358AD4E0091BEC3 /* SharedUI */,
 				72DCAF1023588CA300EAD63D /* APIClient */,
+				236A36BE2358E2F8000BF752 /* Extensions */,
 				72DCAEFC23588B8000EAD63D /* AppDelegate.swift */,
 				72DCAEFE23588B8000EAD63D /* SceneDelegate.swift */,
 				26B449BE23589B46001BB99B /* LocationSearchViewController.swift */,
@@ -117,8 +146,7 @@
 				268AFB052358A151000CB991 /* SearchViewController.xib */,
 				2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */,
 				2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */,
-				2370EF082358B7290091BEC3 /* BookingTableViewController.swift */,
-				2370EF092358B7290091BEC3 /* BookingTableViewController.xib */,
+				236A36B52358D8C6000BF752 /* BookingTableView */,
 				2687D2732358AA73003D2EBC /* streets.Aachen.json */,
 				72DCAF0523588B8100EAD63D /* Assets.xcassets */,
 				72DCAF0723588B8100EAD63D /* LaunchScreen.storyboard */,
@@ -262,6 +290,7 @@
 				72DCAF0623588B8100EAD63D /* Assets.xcassets in Resources */,
 				268AFB072358A151000CB991 /* SearchViewController.xib in Resources */,
 				2687D2742358AA73003D2EBC /* streets.Aachen.json in Resources */,
+				236A36BB2358D92E000BF752 /* BookingView.xib in Resources */,
 				2370EF0B2358B7290091BEC3 /* BookingTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,12 +306,15 @@
 				72DCAF6423588F8500EAD63D /* Booking.swift in Sources */,
 				72DCAF6A2358903B00EAD63D /* Team.swift in Sources */,
 				2370EF0A2358B7290091BEC3 /* BookingTableViewController.swift in Sources */,
+				236A36B92358D91F000BF752 /* BookingView.swift in Sources */,
 				72DCAF5A23588D0700EAD63D /* Request.swift in Sources */,
 				268AFB062358A151000CB991 /* SearchViewController.swift in Sources */,
+				236A36C02358E5A6000BF752 /* UIView+Autolayout.swift in Sources */,
 				2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */,
 				72DCAF5523588D0700EAD63D /* Endpoint.swift in Sources */,
 				72DCAF4423588D0700EAD63D /* Encodable+JSON.swift in Sources */,
 				72DCAF5823588D0700EAD63D /* NetworkFailure.swift in Sources */,
+				236A36BD2358E2EC000BF752 /* Bundle+XIB.swift in Sources */,
 				72DCAF6623588FCC00EAD63D /* Vehicle.swift in Sources */,
 				72DCAF4223588D0700EAD63D /* Bundle+InfoPlist.swift in Sources */,
 				72DCAEFD23588B8000EAD63D /* AppDelegate.swift in Sources */,
