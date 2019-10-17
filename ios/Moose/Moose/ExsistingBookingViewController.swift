@@ -51,7 +51,7 @@ class ExsistingBookingViewController: UIViewController {
         var newBooking = Booking()
         newBooking.cityLat = searchModel.location!.latitude
         newBooking.cityLng = searchModel.location!.longitude
-        newBooking.city = searchModel.descr
+        newBooking.displayName = searchModel.descr
         let timeAndDateViewController = DatePickerViewController.makeNew(booking: newBooking)
         show(timeAndDateViewController, sender: self)
     }
