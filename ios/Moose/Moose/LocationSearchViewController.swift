@@ -20,33 +20,23 @@ class LocationSearchViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        let map = MKMapView(frame: self.view.bounds)
-        map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(map)
-        map.delegate = self
         
-//        // Placed behind the navigation bar.
-//        let maskView = UIView()
-//        maskView.backgroundColor = .white
-//        maskView.translatesAutoresizingMaskIntoConstraints = false
-//        self.view.addSubview(maskView)
-//
-//        NSLayoutConstraint.activate([
-//            view.leadingAnchor.constraint(equalTo: maskView.leadingAnchor),
-//            view.trailingAnchor.constraint(equalTo: maskView.trailingAnchor),
-//            view.topAnchor.constraint(equalTo: maskView.topAnchor),
-//            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: maskView.bottomAnchor)
-//        ])
-        
+        setUpMap()
+        setUpSearch()
+    }
+    
+    // MARK: Setup
+    
+    private func setUpSearch() {
         let child = SearchViewController()
         
-        // Add self as delegate
+        // Add self as delegate so we get notified of a location selection
         child.delegate = self
         
         self.addChild(child)
         self.view.addSubview(child.view)
         child.view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             child.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100),
             child.view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
@@ -54,7 +44,29 @@ class LocationSearchViewController: UIViewController {
             child.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
     }
+    
+    private func setUpMap() {
+        let map = MKMapView(frame: self.view.bounds)
+        map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(map)
+        map.delegate = self
+    }
+    
+    // MARK: Flow logic
+    
+    /// Check wether we have exsisting bookings and continue with our flow accordingly.
+    private func processModelAndContinue(model: SearchModel) {
+        // TODO: Get existing bookings from backend and decide wether bookings to the same locations exsist all ready.
+        
+        if true {
+            navigationController?.pushViewController(ExsistingBookingViewController(), animated: true)
+        } else {
+            // TODO: Show time and date view controller.
+        }
+    }
 }
+
+// MARK: MKMapViewDelegate
 
 extension LocationSearchViewController: MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
@@ -62,8 +74,10 @@ extension LocationSearchViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: SearchViewControllerDelegate
+
 extension LocationSearchViewController: SearchViewControllerDelegate {
     func didSelect(model: SearchModel) {
-        print("\(model)")
+        processModelAndContinue(model: model)
     }
 }
