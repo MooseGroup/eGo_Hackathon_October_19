@@ -37,6 +37,10 @@ class BookingView: UIView {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
+    override func awakeFromNib() {
+        userImageView.layer.cornerRadius = userImageView.frame.height/2
+    }
+    
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
@@ -49,8 +53,8 @@ class BookingView: UIView {
         didSet {
             titleLabel.text = model?.displayName
             startDateLabel.text = "Start \(BookingView.dateFormatter.string(from: model!.from!))"
-            endDateLabel.text = "\(BookingView.dateFormatter.string(from: model!.until!))"
-            remainingSeatsLabel.text = "\(String(describing: model?.seatsAvailable)) are still free to join!"
+            endDateLabel.text = "End \(BookingView.dateFormatter.string(from: model!.until!))"
+            remainingSeatsLabel.text = "\(model!.seatsAvailable!) seats are still free!"
         }
     }
     

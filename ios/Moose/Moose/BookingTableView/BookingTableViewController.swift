@@ -37,17 +37,25 @@ class BookingTableViewController: UITableViewController {
         // Mock user data as we don't have profiles in this demo.
         switch indexPath.row {
         case 0:
-            let a: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
-            cell.bookingView.userModel = a
+            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            cell.bookingView.model = model
+            let userModel: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
+            cell.bookingView.userModel = userModel
         case 1:
-            let b: (image: UIImage, name: String) = (UIImage(named: "user1")!, "Sven Titgemeyer")
-            cell.bookingView.userModel = b
+            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            cell.bookingView.model = model
+            let userModel: (image: UIImage, name: String) = (UIImage(named: "user1")!, "Sven Titgemeyer")
+            cell.bookingView.userModel = userModel
         case 2:
-            let c: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
-            cell.bookingView.userModel = c
+            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            cell.bookingView.model = model
+            let userModel: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
+            cell.bookingView.userModel = userModel
         default:
-            let d: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
-            cell.bookingView.userModel = d
+            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            cell.bookingView.model = model
+            let userModel: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
+            cell.bookingView.userModel = userModel
         }
         
         return cell
