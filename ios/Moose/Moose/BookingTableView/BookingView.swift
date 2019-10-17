@@ -11,7 +11,7 @@ import UIKit
 class BookingTableViewCell: UITableViewCell {
     
     /// The preferred height for this table view cell.
-    static let cellHeight: CGFloat = 283
+    static let cellHeight: CGFloat = 173
     
     let bookingView: BookingView
     
@@ -48,8 +48,8 @@ class BookingView: UIView {
     var model: Booking? {
         didSet {
             titleLabel.text = model?.displayName
-            startDateLabel.text = BookingView.dateFormatter.string(from: model!.from!)
-            endDateLabel.text = BookingView.dateFormatter.string(from: model!.until!)
+            startDateLabel.text = "Start \(BookingView.dateFormatter.string(from: model!.from!))"
+            endDateLabel.text = "\(BookingView.dateFormatter.string(from: model!.until!))"
             remainingSeatsLabel.text = "\(String(describing: model?.seatsAvailable)) are still free to join!"
         }
     }

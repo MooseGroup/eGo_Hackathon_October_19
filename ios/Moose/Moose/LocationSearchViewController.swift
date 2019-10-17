@@ -23,7 +23,7 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("Where to?", comment: "Title for the location search vc.")
+        self.title = NSLocalizedString("Where to go?", comment: "Title for the location search vc.")
         self.navigationItem.largeTitleDisplayMode = .never
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
