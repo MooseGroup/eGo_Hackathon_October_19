@@ -12,3 +12,9 @@ extension Encodable {
         return json
     }
 }
+
+extension RawRepresentable where RawValue == String {
+    var value: String {
+        return rawValue
+    }
+}

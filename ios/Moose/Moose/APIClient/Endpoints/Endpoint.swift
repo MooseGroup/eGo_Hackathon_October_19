@@ -24,11 +24,11 @@ struct Endpoint: Requestable {
     let body: JSON?
     let configuration: APIConfiguration
     init(_ path: String,
-                method: HTTPMethod = .GET,
-                parameter: HTTPParameter? = nil,
-                body: JSON? = nil,
-                header: HTTPHeader? = nil,
-                configuration: APIConfiguration = DefaultAPIConfig()) {
+         method: HTTPMethod = .GET,
+         parameter: HTTPParameter? = nil,
+         body: JSON? = nil,
+         header: HTTPHeader? = nil,
+         configuration: APIConfiguration = DefaultAPIConfig()) {
         self.path = path
         self.method = method
         self.parameter = parameter
