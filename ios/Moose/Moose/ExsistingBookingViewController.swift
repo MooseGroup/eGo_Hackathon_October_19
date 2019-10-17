@@ -32,9 +32,7 @@ class ExsistingBookingViewController: UIViewController {
     }
 
     @IBAction func createNewBooking(_ sender: Any) {
-        // TODO: Open Time and Date Selection Screen from here!
-        let timeAndDateViewController = UIViewController()
-        timeAndDateViewController.view.backgroundColor = .white
-        navigationController?.pushViewController(timeAndDateViewController, animated: true)
+        let timeAndDateViewController = DatePickerViewController.makeNew()
+        show(timeAndDateViewController, sender: self)
     }
 }
