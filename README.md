@@ -21,7 +21,7 @@ For reduced complexity we also left out infrastructure like payments and user pr
 1. Our flow starts with the question "Where are you going?". Here the user is supposed to tell us of the intended target location. If a booking to this location is all ready scheduled for the near future we will bring the user to page 2. else if no booking for this location is available, we will route the user to screen 3.
 	
 
-2. Since one or more bookings to the same location are scheduled for the near future, we will display the user a list ov available bookings that could be joined. They can see the starting and end times of these bookings and by whom they are created. If the user decides that a booking is suitable for their pusposes they can select the entry and will be routed to page 2.1 if non of the listed bookings is suitable they can select a call to action at the bottom of the screen so that they will be routet to screen 3.
+2. Since one or more bookings to the same location are scheduled for the near future, we will display the user a list of available bookings that could be joined. They can see the starting and end times of these bookings and by whom they are created. If the user decides that a booking is suitable for their pusposes they can select the entry and will be routed to page 2.1 if non of the listed bookings is suitable they can select a call to action at the bottom of the screen so that they will be routet to screen 3.
 
 3. On this screen the user is able to enter the starting and end time of their intended trip, in order to continue the creation of a new public booking. After completion of which the user will be routed to screen 4.
 
