@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let api = APIClient()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        api.bookings.bookings(.GET) { result in
+            print(result.value)
+        }
     }
-
-
 }
 
