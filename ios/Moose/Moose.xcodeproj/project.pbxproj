@@ -17,7 +17,6 @@
 		26B449BF23589B46001BB99B /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B449BE23589B46001BB99B /* LocationSearchViewController.swift */; };
 		72DCAEFD23588B8000EAD63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAEFC23588B8000EAD63D /* AppDelegate.swift */; };
 		72DCAEFF23588B8000EAD63D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAEFE23588B8000EAD63D /* SceneDelegate.swift */; };
-		72DCAF0123588B8000EAD63D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF0023588B8000EAD63D /* ViewController.swift */; };
 		72DCAF0623588B8100EAD63D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72DCAF0523588B8100EAD63D /* Assets.xcassets */; };
 		72DCAF0923588B8100EAD63D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72DCAF0723588B8100EAD63D /* LaunchScreen.storyboard */; };
 		72DCAF4123588D0700EAD63D /* URL+URLRequest+Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCAF1223588D0700EAD63D /* URL+URLRequest+Session.swift */; };
@@ -50,7 +49,6 @@
 		72DCAEF923588B8000EAD63D /* Moose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72DCAEFC23588B8000EAD63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72DCAEFE23588B8000EAD63D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		72DCAF0023588B8000EAD63D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		72DCAF0523588B8100EAD63D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72DCAF0823588B8100EAD63D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72DCAF0A23588B8100EAD63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				72DCAF1023588CA300EAD63D /* APIClient */,
 				72DCAEFC23588B8000EAD63D /* AppDelegate.swift */,
 				72DCAEFE23588B8000EAD63D /* SceneDelegate.swift */,
-				72DCAF0023588B8000EAD63D /* ViewController.swift */,
 				26B449BE23589B46001BB99B /* LocationSearchViewController.swift */,
 				268AFB042358A151000CB991 /* SearchViewController.swift */,
 				268AFB052358A151000CB991 /* SearchViewController.xib */,
@@ -283,7 +280,6 @@
 				72DCAF5A23588D0700EAD63D /* Request.swift in Sources */,
 				268AFB062358A151000CB991 /* SearchViewController.swift in Sources */,
 				2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */,
-				72DCAF0123588B8000EAD63D /* ViewController.swift in Sources */,
 				72DCAF5523588D0700EAD63D /* Endpoint.swift in Sources */,
 				72DCAF4423588D0700EAD63D /* Encodable+JSON.swift in Sources */,
 				72DCAF5823588D0700EAD63D /* NetworkFailure.swift in Sources */,

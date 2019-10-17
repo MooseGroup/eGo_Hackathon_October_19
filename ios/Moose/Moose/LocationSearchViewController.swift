@@ -9,8 +9,15 @@
 import UIKit
 import MapKit
 
+
 class LocationSearchViewController: UIViewController {
 
+    // MARK: Properties
+    
+    let api = APIClient()
+    
+    // MARK: View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,7 +63,12 @@ class LocationSearchViewController: UIViewController {
     
     /// Check wether we have exsisting bookings and continue with our flow accordingly.
     private func processModelAndContinue(model: SearchModel) {
-        // TODO: Get existing bookings from backend and decide wether bookings to the same locations exsist all ready.
+        
+        // Request all bookings from backend
+        api.bookings.getBookings { result in
+            let bookings = result.value?.data
+            // TODO: decide wether bookings for this location exsist.
+        }
         
         if true {
             navigationController?.pushViewController(ExsistingBookingViewController(), animated: true)
