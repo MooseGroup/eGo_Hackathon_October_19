@@ -10,6 +10,9 @@ import UIKit
 
 class BookingTableViewCell: UITableViewCell {
     
+    /// The preferred height for this table view cell.
+    static let cellHeight: CGFloat = 283
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         let bookingView = Bundle.loadView(fromNib: "BookingView", withType: BookingView.self)
