@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let client = APIClient()
         client.vehicles.getVehicles { (result) in
             guard let vehicle = result.value?.data.first else { return }
+            // New Booking
             let booking = Booking(id: UUID().uuidString, event: "Event", city: "Aachen", cityLat: 50.1, cityLng: 6.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Seed", from: Date(), until: Date(), time: Date(), status: .new, vehicle: vehicle)
             client.vehicles.createNewBooking(booking) { (res) in
                 print(res)

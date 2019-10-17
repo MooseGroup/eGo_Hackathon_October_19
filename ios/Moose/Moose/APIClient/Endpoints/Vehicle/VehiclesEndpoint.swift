@@ -15,7 +15,8 @@ extension VehiclesEndpoint {
     /// Creates a new booking for a vehicle.
     @discardableResult
     func createNewBooking(_ booking: Booking, completion: @escaping (Result<APIResponse<[Booking]>>) -> Void) -> URLRequest {
-        return Endpoint("vehicles/\(booking.vehicle.id)}/bookings", method: .POST)
+        let body = booking.createNewRequest
+        return Endpoint("vehicles/\(booking.vehicle?.id ?? "")/bookings", method: .POST, body: body)
                 .request(client: networkClient, completion)
     }
 }

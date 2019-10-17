@@ -33,7 +33,7 @@ class NetworkClient: NSObject, URLSessionTaskDelegate, NetworkClientRequestable 
 
     @discardableResult
     func request(_ request: URLRequest, completion: @escaping (Result<Response>) -> Void) -> URLSessionDataTask? {
-        print("Request: \(request.httpMethod) \(request) \(String(describing: request.allHTTPHeaderFields))")
+        print("Request: \(request.httpMethod ?? "") \(request) \(String(describing: request.allHTTPHeaderFields))")
         let task = session.startDataTask(request: request) { (data, response, httpError) in
             DispatchQueue.main.async {
                 if let error = self.determineFailure(data, response, httpError) {
