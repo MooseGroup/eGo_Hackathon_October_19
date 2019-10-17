@@ -15,9 +15,7 @@ class DatePickerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
-        
+        tableView.tableFooterView = UIView()
         startPicker.date = Date()
         endPicker.date = Date().addingTimeInterval(3600*2)
         updateDates(self)

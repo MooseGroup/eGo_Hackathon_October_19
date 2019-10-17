@@ -15,6 +15,7 @@
 		2370EF022358AD2D0091BEC3 /* ExsistingBookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */; };
 		2370EF0A2358B7290091BEC3 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EF082358B7290091BEC3 /* BookingTableViewController.swift */; };
 		2370EF0B2358B7290091BEC3 /* BookingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF092358B7290091BEC3 /* BookingTableViewController.xib */; };
+		23799902235923CE00C5D980 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23799901235923CE00C5D980 /* UIViewController+Keyboard.swift */; };
 		2687D2742358AA73003D2EBC /* streets.Aachen.json in Resources */ = {isa = PBXBuildFile; fileRef = 2687D2732358AA73003D2EBC /* streets.Aachen.json */; };
 		268AFB062358A151000CB991 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFB042358A151000CB991 /* SearchViewController.swift */; };
 		268AFB072358A151000CB991 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268AFB052358A151000CB991 /* SearchViewController.xib */; };
@@ -56,6 +57,7 @@
 		2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExsistingBookingViewController.xib; sourceTree = "<group>"; };
 		2370EF082358B7290091BEC3 /* BookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
 		2370EF092358B7290091BEC3 /* BookingTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingTableViewController.xib; sourceTree = "<group>"; };
+		23799901235923CE00C5D980 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		2687D2732358AA73003D2EBC /* streets.Aachen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = streets.Aachen.json; sourceTree = "<group>"; };
 		268AFB042358A151000CB991 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		268AFB052358A151000CB991 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				236A36BC2358E2EC000BF752 /* Bundle+XIB.swift */,
 				236A36BF2358E5A6000BF752 /* UIView+Autolayout.swift */,
+				23799901235923CE00C5D980 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				236A36C02358E5A6000BF752 /* UIView+Autolayout.swift in Sources */,
 				2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */,
 				72DCAF5523588D0700EAD63D /* Endpoint.swift in Sources */,
+				23799902235923CE00C5D980 /* UIViewController+Keyboard.swift in Sources */,
 				72DCAF4423588D0700EAD63D /* Encodable+JSON.swift in Sources */,
 				72DCAF5823588D0700EAD63D /* NetworkFailure.swift in Sources */,
 				236A36BD2358E2EC000BF752 /* Bundle+XIB.swift in Sources */,

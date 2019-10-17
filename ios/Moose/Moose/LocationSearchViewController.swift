@@ -12,7 +12,7 @@ import CoreLocation
 
 
 class LocationSearchViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     // MARK: Properties
     
     let api = APIClient()
@@ -23,17 +23,18 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = NSLocalizedString("Where to?", comment: "Title for the location search vc.")
         self.navigationItem.largeTitleDisplayMode = .never
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.requestLocation()
+        
+        // Prepare to hide keyboard when pressed outside of textfield
+        hideKeyboardWhenTappedAround()
     }
     
     override func loadView() {
         super.loadView()
-        
         setUpMap()
         setUpSearch()
     }
@@ -84,20 +85,24 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     /// Check wether we have exsisting bookings and continue with our flow accordingly.
     private func processModelAndContinue(model: SearchModel) {
         self.view.isUserInteractionEnabled = false
-        // Request all bookings from backend
-        api.bookings.getBookings { result in
-            let bookings = result.value?.data
-            DispatchQueue.main.async {
-                self.view.isUserInteractionEnabled = true
-                if true {
-                    self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
-                } else {
-                    // TODO: Show time and date view controller.
-                }
+        DispatchQueue.main.async {
+            self.view.isUserInteractionEnabled = true
+            
+            // TODO: Request all bookings from backend and see if a booking for this location is all ready available
+            if true {
+                self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
+            } else {
+                var newBooking = Booking()
+                newBooking.cityLat = model.location!.latitude
+                newBooking.cityLng = model.location!.longitude
+                newBooking.city = model.descr
+                let timeAndDateViewController = DatePickerViewController.makeNew(booking: newBooking)
+                self.show(timeAndDateViewController, sender: self)
             }
         }
     }
 }
+
 
 // MARK: MKMapViewDelegate
 

@@ -28,7 +28,6 @@ class SeatNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Seat Selection"
-        // Do any additional setup after loading the view.
         updateSeatNumber(self)
     }
 
