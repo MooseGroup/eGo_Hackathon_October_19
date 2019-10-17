@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2370EF012358AD2D0091BEC3 /* ExistingBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EEFF2358AD2D0091BEC3 /* ExistingBookingViewController.swift */; };
-		2370EF022358AD2D0091BEC3 /* ExistingBookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF002358AD2D0091BEC3 /* ExistingBookingViewController.xib */; };
+		2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */; };
+		2370EF022358AD2D0091BEC3 /* ExsistingBookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */; };
+		2370EF0A2358B7290091BEC3 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370EF082358B7290091BEC3 /* BookingTableViewController.swift */; };
+		2370EF0B2358B7290091BEC3 /* BookingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2370EF092358B7290091BEC3 /* BookingTableViewController.xib */; };
 		2687D2742358AA73003D2EBC /* streets.Aachen.json in Resources */ = {isa = PBXBuildFile; fileRef = 2687D2732358AA73003D2EBC /* streets.Aachen.json */; };
 		268AFB062358A151000CB991 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268AFB042358A151000CB991 /* SearchViewController.swift */; };
 		268AFB072358A151000CB991 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 268AFB052358A151000CB991 /* SearchViewController.xib */; };
@@ -21,8 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2370EEFF2358AD2D0091BEC3 /* ExistingBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingBookingViewController.swift; sourceTree = "<group>"; };
-		2370EF002358AD2D0091BEC3 /* ExistingBookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExistingBookingViewController.xib; sourceTree = "<group>"; };
+		2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExsistingBookingViewController.swift; sourceTree = "<group>"; };
+		2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExsistingBookingViewController.xib; sourceTree = "<group>"; };
+		2370EF082358B7290091BEC3 /* BookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
+		2370EF092358B7290091BEC3 /* BookingTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingTableViewController.xib; sourceTree = "<group>"; };
 		2687D2732358AA73003D2EBC /* streets.Aachen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = streets.Aachen.json; sourceTree = "<group>"; };
 		268AFB042358A151000CB991 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		268AFB052358A151000CB991 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -80,8 +84,10 @@
 				26B449BE23589B46001BB99B /* LocationSearchViewController.swift */,
 				268AFB042358A151000CB991 /* SearchViewController.swift */,
 				268AFB052358A151000CB991 /* SearchViewController.xib */,
-				2370EEFF2358AD2D0091BEC3 /* ExistingBookingViewController.swift */,
-				2370EF002358AD2D0091BEC3 /* ExistingBookingViewController.xib */,
+				2370EEFF2358AD2D0091BEC3 /* ExsistingBookingViewController.swift */,
+				2370EF002358AD2D0091BEC3 /* ExsistingBookingViewController.xib */,
+				2370EF082358B7290091BEC3 /* BookingTableViewController.swift */,
+				2370EF092358B7290091BEC3 /* BookingTableViewController.xib */,
 				2687D2732358AA73003D2EBC /* streets.Aachen.json */,
 				72DCAF0523588B8100EAD63D /* Assets.xcassets */,
 				72DCAF0723588B8100EAD63D /* LaunchScreen.storyboard */,
@@ -148,11 +154,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2370EF022358AD2D0091BEC3 /* ExistingBookingViewController.xib in Resources */,
+				2370EF022358AD2D0091BEC3 /* ExsistingBookingViewController.xib in Resources */,
 				72DCAF0923588B8100EAD63D /* LaunchScreen.storyboard in Resources */,
 				72DCAF0623588B8100EAD63D /* Assets.xcassets in Resources */,
 				268AFB072358A151000CB991 /* SearchViewController.xib in Resources */,
 				2687D2742358AA73003D2EBC /* streets.Aachen.json in Resources */,
+				2370EF0B2358B7290091BEC3 /* BookingTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,8 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2370EF0A2358B7290091BEC3 /* BookingTableViewController.swift in Sources */,
 				268AFB062358A151000CB991 /* SearchViewController.swift in Sources */,
-				2370EF012358AD2D0091BEC3 /* ExistingBookingViewController.swift in Sources */,
+				2370EF012358AD2D0091BEC3 /* ExsistingBookingViewController.swift in Sources */,
 				72DCAF0123588B8000EAD63D /* ViewController.swift in Sources */,
 				72DCAEFD23588B8000EAD63D /* AppDelegate.swift in Sources */,
 				72DCAEFF23588B8000EAD63D /* SceneDelegate.swift in Sources */,
