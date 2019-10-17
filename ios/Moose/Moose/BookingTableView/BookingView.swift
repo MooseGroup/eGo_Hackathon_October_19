@@ -13,15 +13,18 @@ class BookingTableViewCell: UITableViewCell {
     /// The preferred height for this table view cell.
     static let cellHeight: CGFloat = 283
     
+    let bookingView: BookingView
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
         let bookingView = Bundle.loadView(fromNib: "BookingView", withType: BookingView.self)
+        self.bookingView = bookingView
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(bookingView)
         bookingView.pinToEdges(of: contentView)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
     }
 }
 
