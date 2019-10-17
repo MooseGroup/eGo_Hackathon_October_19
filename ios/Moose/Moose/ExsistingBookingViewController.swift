@@ -29,7 +29,6 @@ class ExsistingBookingViewController: UIViewController {
         tableContainer.addSubview(bookingTableViewController.view)
         bookingTableViewController.view.frame = tableContainer.bounds
         bookingTableViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //bookingTableViewController.didMove(toParent: self)
     }
 
     @IBAction func createNewBooking(_ sender: Any) {
