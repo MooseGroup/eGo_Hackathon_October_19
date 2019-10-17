@@ -27,7 +27,9 @@ class ExsistingBookingViewController: UIViewController {
         
         // Add the view of our table view to our table view container we prepared to host its ui.
         tableContainer.addSubview(bookingTableViewController.view)
-        bookingTableViewController.didMove(toParent: self)
+        bookingTableViewController.view.frame = tableContainer.bounds
+        bookingTableViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //bookingTableViewController.didMove(toParent: self)
     }
 
     @IBAction func createNewBooking(_ sender: Any) {
