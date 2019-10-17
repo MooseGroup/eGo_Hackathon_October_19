@@ -122,6 +122,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         let results = Array(Set(SearchProvider.shared.results(query: text)))
         self.results = results
     }
+    
+    func dismiss() {
+        self.results = []
+    }
 
 }
 
