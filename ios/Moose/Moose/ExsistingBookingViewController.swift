@@ -18,6 +18,19 @@ class ExsistingBookingViewController: UIViewController {
         setUpChildTableView()
     }
     
+    private let existingBookings: [Booking]
+    private let searchModel: SearchModel
+    
+    init(existingBookings: [Booking], searchModel: SearchModel) {
+        self.existingBookings = existingBookings
+        self.searchModel = searchModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     fileprivate func setUpChildTableView() {
         // Create booking table view
         let bookingTableViewController = BookingTableViewController(nibName: "BookingTableViewController", bundle: nil)
@@ -32,7 +45,12 @@ class ExsistingBookingViewController: UIViewController {
     }
 
     @IBAction func createNewBooking(_ sender: Any) {
-        let timeAndDateViewController = DatePickerViewController.makeNew()
+        // TODO: Add location to booking.
+        var newBooking = Booking()
+        newBooking.cityLat = searchModel.location!.latitude
+        newBooking.cityLng = searchModel.location!.longitude
+        newBooking.city = searchModel.descr
+        let timeAndDateViewController = DatePickerViewController.makeNew(booking: newBooking)
         show(timeAndDateViewController, sender: self)
     }
 }

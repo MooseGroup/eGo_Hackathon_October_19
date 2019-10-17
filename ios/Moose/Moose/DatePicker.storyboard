@@ -32,6 +32,9 @@
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eb0-iM-6ur">
                                                     <rect key="frame" x="0.0" y="51" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="updateDates:" destination="x7X-ZW-oa1" eventType="valueChanged" id="A8n-YL-fa5"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -60,6 +63,9 @@
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9qp-Uq-fJ0">
                                                     <rect key="frame" x="0.0" y="51" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="updateDates:" destination="x7X-ZW-oa1" eventType="valueChanged" id="PpW-Bu-c0Z"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -97,6 +103,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="bookButton" destination="zLN-ZR-9Rz" id="6If-sU-dZw"/>
                         <outlet property="endPicker" destination="9qp-Uq-fJ0" id="WTt-S5-pVS"/>
                         <outlet property="startPicker" destination="Eb0-iM-6ur" id="bc5-c2-RJV"/>
                     </connections>

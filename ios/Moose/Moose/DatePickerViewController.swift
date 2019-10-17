@@ -11,6 +11,7 @@ import UIKit
 class DatePickerViewController: UITableViewController {
     @IBOutlet var startPicker: UIDatePicker!
     @IBOutlet var endPicker: UIDatePicker!
+    @IBOutlet var bookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,24 +20,23 @@ class DatePickerViewController: UITableViewController {
         
         startPicker.date = Date()
         endPicker.date = Date().addingTimeInterval(3600*2)
+        updateDates(self)
     }
     
-    class func makeNew() -> DatePickerViewController {
-        return UIStoryboard(name: "DatePicker", bundle: nil).instantiateInitialViewController() as! DatePickerViewController
+    private var booking: Booking!
+    
+    class func makeNew(booking: Booking) -> DatePickerViewController {
+        let dateVC = UIStoryboard(name: "DatePicker", bundle: nil).instantiateInitialViewController() as! DatePickerViewController
+        dateVC.booking = booking
+        return dateVC
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func updateDates(_ sender: Any) {
+        booking.from = startPicker.date
+        booking.until = endPicker.date
     }
-    */
-
 }

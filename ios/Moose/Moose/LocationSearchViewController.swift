@@ -63,17 +63,18 @@ class LocationSearchViewController: UIViewController {
     
     /// Check wether we have exsisting bookings and continue with our flow accordingly.
     private func processModelAndContinue(model: SearchModel) {
-        
+        self.view.isUserInteractionEnabled = false
         // Request all bookings from backend
         api.bookings.getBookings { result in
             let bookings = result.value?.data
-            // TODO: decide wether bookings for this location exsist.
-        }
-        
-        if true {
-            navigationController?.pushViewController(ExsistingBookingViewController(), animated: true)
-        } else {
-            // TODO: Show time and date view controller.
+            DispatchQueue.main.async {
+                self.view.isUserInteractionEnabled = true
+                if true {
+                    self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
+                } else {
+                    // TODO: Show time and date view controller.
+                }
+            }
         }
     }
 }
