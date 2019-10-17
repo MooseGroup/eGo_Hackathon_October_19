@@ -4,12 +4,12 @@ struct Vehicle: Codable {
     enum Status: String, Codable {
         case unknown, charging, available
     }
-    let id: String
-    let country: String
-    let environment: Environment
-    let licensePlate: String
-    let manufacturer: String
-    let model: String
-    let status: Status
-    let team: Team
+    var id: String
+    var country: String
+    var environment: Environment
+    var licensePlate: String
+    var manufacturer: String
+    var model: String
+    var status: Status
+    var team: Team
 }

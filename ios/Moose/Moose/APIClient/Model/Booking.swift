@@ -4,11 +4,11 @@ struct Booking: Codable {
     enum Status: String, Codable {
         case unknown, new
     }
-    let event: String
-    let id: String
-    let from: Date
-    let until: Date
-    let time: Date
-    let status: Status
-    let vehicle: Vehicle
+    var event: String
+    var id: String
+    var from: Date
+    var until: Date
+    var time: Date
+    var status: Status
+    var vehicle: Vehicle
 }

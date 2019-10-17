@@ -1,6 +1,6 @@
 import Foundation
 
 struct Team: Codable {
-    let id: String
-    let name: String
+    var id: String
+    var name: String
 }

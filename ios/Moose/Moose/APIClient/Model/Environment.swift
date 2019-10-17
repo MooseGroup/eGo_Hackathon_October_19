@@ -1,7 +1,7 @@
 import Foundation
 
 struct Environment: Codable {
-    let id: String
-    let name: String
-    let team: Team
+    var id: String
+    var name: String
+    var team: Team
 }
