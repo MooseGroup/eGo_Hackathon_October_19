@@ -91,7 +91,9 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
             
             // TODO: Request all bookings from backend and see if a booking for this location is all ready available
             if true {
-                self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
+                    self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
+                }
             } else {
                 var newBooking = Booking()
                 newBooking.cityLat = model.location!.latitude
