@@ -24,6 +24,7 @@ class LocationSearchViewController: UIViewController {
         let map = MKMapView(frame: self.view.bounds)
         map.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(map)
+        map.delegate = self
         
 //        // Placed behind the navigation bar.
 //        let maskView = UIView()
@@ -37,6 +38,24 @@ class LocationSearchViewController: UIViewController {
 //            view.topAnchor.constraint(equalTo: maskView.topAnchor),
 //            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: maskView.bottomAnchor)
 //        ])
+        
+        let child = SearchViewController()
+        self.addChild(child)
+        self.view.addSubview(child.view)
+        child.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            child.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            child.view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            child.view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            child.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+    }
+}
+
+extension LocationSearchViewController: MKMapViewDelegate {
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        self.view.endEditing(false)
     }
 }
 
