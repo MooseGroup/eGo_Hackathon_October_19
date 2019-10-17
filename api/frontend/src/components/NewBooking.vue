@@ -18,7 +18,19 @@
       <DatetimePicker label="Until" v-model="dateUntil"></DatetimePicker>
     </v-col>
     <v-col sm="3">
-      <v-text-field label="Solo" solo v-model="city"></v-text-field>
+      <v-text-field label="City" solo v-model="city"></v-text-field>
+    </v-col>
+    <v-col sm="3">
+      <v-text-field label="Latitude" solo v-model="cityLat"></v-text-field>
+    </v-col>
+    <v-col sm="3">
+      <v-text-field label="Longitude" solo v-model="cityLng"></v-text-field>
+    </v-col>
+    <v-col sm="3">
+      <v-text-field label="Seats available" solo v-model="seatsAvailable"></v-text-field>
+    </v-col>
+    <v-col sm="3">
+      <v-text-field label="Seats total" solo v-model="seatsTotal"></v-text-field>
     </v-col>
     <v-col sm="3" class="pt-4">
       <v-btn @click="addBooking">
@@ -41,6 +53,10 @@ export default {
     return {
       vehicle: null,
       city: null,
+      cityLat: null,
+      cityLng: null,
+      seatsAvailable: null,
+      seatsTotal: null,
       dateFrom: null,
       dateUntil: null
     };
@@ -58,7 +74,11 @@ export default {
           {
             from: this.dateFrom.toISOString(),
             until: this.dateUntil.toISOString(),
-            city: this.city
+            city: this.city,
+            cityLat: this.cityLat,
+            cityLng: this.cityLng,
+            seatsTotal: this.seatsTotal,
+            seatsAvailable: this.seatsAvailable
           },
           this.$root.axiosOptions
         )

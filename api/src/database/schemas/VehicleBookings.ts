@@ -46,6 +46,18 @@ export const SCHEMA: mongoose.SchemaDefinition = {
         trim: true,
         type: String,
     },
+    cityLat: {
+        type: Number,
+    },
+    cityLng: {
+        type: Number,
+    },
+    seatsAvailable: {
+        type: Number,
+    },
+    seatsTotal: {
+        type: Number,
+    },
     vehicle_id: {
         lowercase: true,
         trim: true,
@@ -56,6 +68,10 @@ export const SCHEMA: mongoose.SchemaDefinition = {
 export function setupSchema(schema: mongoose.Schema, name: string) {
     schema.index({ event: 1 });
     schema.index({ city: 1 });
+    schema.index({ cityLat: 1 });
+    schema.index({ cityLng: 1 });
+    schema.index({ seatsAvailable: 1 });
+    schema.index({ seatsTotal: 1 });
     schema.index({ status: 1 });
     schema.index({ vehicle_id: 1, event: 1 });
     schema.index({ vehicle_id: 1, event: 1, status: 1 });

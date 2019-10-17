@@ -96,6 +96,22 @@ export interface VehicleBookingLogsDocument extends mongoose.Document {
     */
     city: string;
     /**
+    * The target city latitude.
+    */
+    cityLat: number;
+    /**
+    * The target city longitude.
+    */
+    cityLng: number;
+    /**
+    * The seats in total
+    */
+    seatsTotal: number;
+    /**
+    * The available seats.
+    */
+    seatsAvailable: number;
+    /**
      * The message data.
      */
     message?: any;
@@ -133,6 +149,22 @@ export interface VehicleBookingsDocument extends mongoose.Document {
     * The target city (displayname).
     */
     city: string;
+     /**
+    * The target city latitude.
+    */
+    cityLat: number;
+    /**
+    * The target city longitude.
+    */
+    cityLng: number;
+    /**
+    * The seats in total
+    */
+    seatsTotal: number;
+    /**
+    * The available seats.
+    */
+    seatsAvailable: number;
     /**
      * The timestamp (UTC).
      */
@@ -635,6 +667,10 @@ export async function vehicleBookingToJSON(
             .toISOString(),
         id: doc.id,
         city: doc.city,
+        cityLat: doc.cityLat,
+        cityLng: doc.cityLng,
+        seatsAvailable: doc.seatsAvailable,
+        seatsTotal: doc.seatsTotal,
         status: egoose.normalizeString(doc.status),
         time: moment.utc(doc.time)
             .toISOString(),
