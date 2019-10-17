@@ -19,7 +19,7 @@ extension BookingsEndpoint {
     }
 
     @discardableResult
-    func bookings(_ method: HTTPMethod, parameter: Request? = nil, request: Request? = nil,
+    func bookings(_ method: HTTPMethod, parameter: Parameter? = nil, request: Request? = nil,
                   completion: @escaping (Result<Response>) -> Void) -> URLRequest {
         return Endpoint("bookings", method: method, parameter: parameter?.json, body: request?.json).request(client: networkClient, completion)
     }
