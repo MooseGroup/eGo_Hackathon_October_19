@@ -53,7 +53,24 @@ class SearchProvider: NSObject {
 }
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
+    let useDiffable = false
 
+    var results: [SearchModel] = [] {
+        didSet {
+            if useDiffable {
+                var snapshot = dataSource.snapshot()
+                snapshot.deleteAllItems()
+                if snapshot.sectionIdentifiers.count == 0 {
+                    snapshot.appendSections(["one"])
+                }
+                snapshot.appendItems(results)
+                dataSource.apply(snapshot)
+            } else {
+                tableView.reloadData()
+            }
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
     lazy var dataSource: UITableViewDiffableDataSource<String, SearchModel> = {
         let ds: UITableViewDiffableDataSource<String, SearchModel> = UITableViewDiffableDataSource(tableView: self.tableView!) { (tv, indexPath, model) -> UITableViewCell? in
@@ -67,7 +84,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = dataSource
+        _ = SearchProvider.shared
+        if useDiffable {
+            self.tableView.dataSource = dataSource
+        } else {
+            self.tableView.dataSource = self
+        }
+        self.tableView.showsVerticalScrollIndicator = false
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.backgroundColor = .clear
         self.tableView.tableFooterView = UIView()
@@ -85,21 +108,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func refreshTableView(_ sender: UITextField) {
         guard let text = sender.text else { return }
-        var snapshot = dataSource.snapshot()
-        snapshot.deleteAllItems()
-        if snapshot.sectionIdentifiers.count == 0 {
-            snapshot.appendSections(["one"])
-        }
         let results = Array(Set(SearchProvider.shared.results(query: text)))
-        snapshot.appendItems(results)
-        dataSource.apply(snapshot)
+        self.results = results
+    }
+}
+
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel!.text = results[indexPath.row].descr
+        return cell
     }
 }
 
 class SearchBackgroundView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard let view = super.hitTest(point, with: event) else { return nil }
-        if view is UITextField || view is UITableViewCell {
+        if view is UITextField || view.superview is UITableViewCell || view is UITableViewCell {
             return view
         } else {
             return nil
