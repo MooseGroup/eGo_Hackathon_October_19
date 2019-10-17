@@ -147,6 +147,26 @@ export interface VehicleBooking {
      */
     readonly event: string;
     /**
+    * The target city (displayname).
+    */
+    readonly city: string;
+    /**
+    * The target city's latitude.
+    */
+    readonly cityLat: number;
+    /**
+    * The target city's langitude.
+    */
+    readonly cityLng: number;
+    /**
+    * The seats in total for the booking.
+    */
+    readonly seatsTotal: number;
+    /**
+    * The available seats for the booking.
+    */
+    readonly seatsAvailable: number;
+    /**
      * The start date.
      */
     readonly from: moment.Moment;

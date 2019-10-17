@@ -96,6 +96,11 @@ export abstract class APIv2VehicleBookingControllerBase extends APIv2ControllerB
                                         req['booking'] = {
                                             event: egoose.normalizeString(BOOKING_DOC.event),
                                             from: moment.utc(BOOKING_DOC.from),
+                                            city: BOOKING_DOC.city,
+                                            cityLat: BOOKING_DOC.cityLat,
+                                            cityLng: BOOKING_DOC.cityLng,
+                                            seatsAvailable: BOOKING_DOC.seatsAvailable,
+                                            seatsTotal: BOOKING_DOC.seatsTotal,
                                             id: BOOKING_DOC.id,
                                             status: egoose.normalizeString(BOOKING_DOC.status),
                                             time: moment.utc(BOOKING_DOC.time),
