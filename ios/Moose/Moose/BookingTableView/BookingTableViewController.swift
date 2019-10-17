@@ -14,6 +14,7 @@ class BookingTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(BookingTableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         
     }
 
