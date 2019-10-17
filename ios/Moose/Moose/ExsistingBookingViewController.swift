@@ -11,11 +11,13 @@ import UIKit
 class ExsistingBookingViewController: UIViewController {
     
     @IBOutlet weak var tableContainer: UIView!
+    @IBOutlet weak var buttonBackground: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Existing Bookings"
         setUpChildTableView()
+        buttonBackground.layer.cornerRadius = buttonBackground.frame.height/2
     }
     
     private let existingBookings: [Booking]
