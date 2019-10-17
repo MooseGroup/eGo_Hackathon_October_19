@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExsistingBookingViewController" customModule="Moose" customModuleProvider="target">
             <connections>
+                <outlet property="buttonBackground" destination="Whs-de-nz2" id="cLy-36-Hz6"/>
                 <outlet property="tableContainer" destination="AJi-xA-7wq" id="wIx-9M-WW3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,20 +29,35 @@
                     <rect key="frame" x="0.0" y="189" width="414" height="707"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-Zr-SDd">
-                    <rect key="frame" x="124" y="812" width="166" height="30"/>
-                    <state key="normal" title="No fit? Create your own!"/>
-                    <connections>
-                        <action selector="createNewBooking:" destination="-1" eventType="touchUpInside" id="hXl-GX-vxw"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whs-de-nz2">
+                    <rect key="frame" x="104" y="792" width="206" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5J-Zr-SDd">
+                            <rect key="frame" x="20" y="10" width="166" height="30"/>
+                            <state key="normal" title="No fit? Create your own!">
+                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </state>
+                            <connections>
+                                <action selector="createNewBooking:" destination="-1" eventType="touchUpInside" id="hXl-GX-vxw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="w5J-Zr-SDd" firstAttribute="top" secondItem="Whs-de-nz2" secondAttribute="top" constant="10" id="9we-BO-kqr"/>
+                        <constraint firstItem="w5J-Zr-SDd" firstAttribute="leading" secondItem="Whs-de-nz2" secondAttribute="leading" constant="20" id="HdT-4A-y3T"/>
+                        <constraint firstItem="w5J-Zr-SDd" firstAttribute="centerX" secondItem="Whs-de-nz2" secondAttribute="centerX" id="aRr-FC-LGl"/>
+                        <constraint firstAttribute="trailing" secondItem="w5J-Zr-SDd" secondAttribute="trailing" constant="20" id="i3O-xh-rIu"/>
+                        <constraint firstAttribute="bottom" secondItem="w5J-Zr-SDd" secondAttribute="bottom" constant="10" id="keD-6X-d8I"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w5J-Zr-SDd" secondAttribute="bottom" constant="20" id="Ait-JE-vx4"/>
+                <constraint firstItem="Whs-de-nz2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="8Xx-Pl-S9o"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AJi-xA-7wq" secondAttribute="trailing" id="Ob7-vn-bCG"/>
+                <constraint firstItem="Whs-de-nz2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q0H-4y-CBH"/>
                 <constraint firstItem="AJi-xA-7wq" firstAttribute="top" secondItem="7eR-LN-cJM" secondAttribute="bottom" constant="20" id="Qld-Mw-HKi"/>
-                <constraint firstItem="w5J-Zr-SDd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Smr-Sq-LGK"/>
                 <constraint firstAttribute="bottom" secondItem="AJi-xA-7wq" secondAttribute="bottom" id="WMw-pa-rxJ"/>
                 <constraint firstItem="AJi-xA-7wq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g47-kG-6Ih"/>
                 <constraint firstItem="7eR-LN-cJM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="nQN-gv-khZ"/>

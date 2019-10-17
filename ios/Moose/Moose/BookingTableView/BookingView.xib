@@ -13,19 +13,19 @@
             <rect key="frame" x="0.0" y="0.0" width="416" height="173"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Awesome Event Sempa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjF-iL-26h">
-                    <rect key="frame" x="20" y="20" width="376" height="23"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <rect key="frame" x="20" y="20" width="376" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12th October 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ds2-Xx-XQr">
-                    <rect key="frame" x="50" y="52.5" width="261" height="21"/>
+                    <rect key="frame" x="50" y="50" width="261" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AuH-FF-GpG">
-                    <rect key="frame" x="20" y="54" width="20" height="17.5"/>
+                    <rect key="frame" x="20" y="51.5" width="20" height="17.5"/>
                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="5ri-OA-CwR"/>
@@ -33,13 +33,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12th October 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEQ-YQ-nAa">
-                    <rect key="frame" x="50" y="82.5" width="261" height="21"/>
+                    <rect key="frame" x="50" y="80" width="261" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lfl-TQ-Ujv">
-                    <rect key="frame" x="20" y="84" width="20" height="17.5"/>
+                    <rect key="frame" x="20" y="81.5" width="20" height="17.5"/>
                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="0lf-WB-KvJ"/>
@@ -47,26 +47,26 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two seats remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WA-PJ-YQa">
-                    <rect key="frame" x="50" y="122.5" width="271" height="21"/>
+                    <rect key="frame" x="50" y="120" width="271" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jGx-QA-qNa">
-                    <rect key="frame" x="321" y="53" width="75" height="75"/>
+                    <rect key="frame" x="321" y="50.5" width="75" height="75"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="10J-eK-hJN"/>
                         <constraint firstAttribute="height" constant="75" id="yNT-UA-gG2"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jochen Meier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahH-ai-A7x">
-                    <rect key="frame" x="320" y="138" width="77" height="15"/>
+                    <rect key="frame" x="320" y="135.5" width="77" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ONc-Bx-MlM">
-                    <rect key="frame" x="20" y="124.5" width="20" height="17.5"/>
+                    <rect key="frame" x="20" y="122" width="20" height="17.5"/>
                     <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="Ep9-mP-LpT"/>
