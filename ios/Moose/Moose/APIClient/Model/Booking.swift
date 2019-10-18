@@ -9,7 +9,7 @@ struct Booking: Codable {
     var city: String?
     var cityLat: Double?
     var cityLng: Double?
-    var seatsTotal: Int?
+    var seatsTotal: Int? = 4
     var seatsAvailable: Int?
     var displayName: String?
     var from: Date?
