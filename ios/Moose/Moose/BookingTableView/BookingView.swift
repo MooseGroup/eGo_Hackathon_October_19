@@ -43,18 +43,30 @@ class BookingView: UIView {
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .long
         return dateFormatter
     }()
+    
+    static let timeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        return dateFormatter
+    }()
+    
         
     /// Set this propertie to fill the BookingView with actual data for display.
     var model: Booking? {
         didSet {
             titleLabel.text = model?.displayName
-            startDateLabel.text = "Start \(BookingView.dateFormatter.string(from: model!.from!))"
-            endDateLabel.text = "End \(BookingView.dateFormatter.string(from: model!.until!))"
-            remainingSeatsLabel.text = "\(model!.seatsAvailable!) seats are still free!"
+            startDateLabel.text = "\(BookingView.dateFormatter.string(from: model!.from!))"
+            endDateLabel.text = "\(BookingView.timeFormatter.string(from: model!.from!)) - \(BookingView.timeFormatter.string(from: model!.until!))"
+            if model!.seatsAvailable! > 0 {
+                remainingSeatsLabel.text = "\(model!.seatsAvailable!) seats are still free!"
+            } else {
+               remainingSeatsLabel.text = "No more seats available."
+            }
         }
     }
     
