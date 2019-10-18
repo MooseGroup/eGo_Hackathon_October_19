@@ -22,15 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let nav = UINavigationController(rootViewController: vc)
         nav.navigationBar.prefersLargeTitles = true
         nav.tabBarItem.image = UIImage(systemName: "car")
-        let window = UIWindow(windowScene: scene)
+        nav.tabBarItem.title = "Book Ride"
         let tab = UITabBarController()
-        
         let existing = BookingTableViewController(filter: nil)
         let existingNav = UINavigationController(rootViewController: existing)
         existingNav.navigationBar.prefersLargeTitles = true
         existingNav.tabBarItem.image = UIImage(systemName: "flame")
         existingNav.tabBarItem.title = "Browse Rides"
         tab.viewControllers = [nav, existingNav]
+        let window = UIWindow(windowScene: scene)
         window.rootViewController = tab
         self.window = window
         window.makeKeyAndVisible()

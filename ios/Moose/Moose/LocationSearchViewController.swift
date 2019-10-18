@@ -23,13 +23,12 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = NSLocalizedString("Where to go?", comment: "Title for the location search vc.")
+        self.navigationItem.title = NSLocalizedString("Where to go?", comment: "Title for the location search vc.")
         self.navigationItem.largeTitleDisplayMode = .never
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = 10000
         locationManager.requestLocation()
-        
         // Prepare to hide keyboard when pressed outside of textfield
         hideKeyboardWhenTappedAround()
     }
