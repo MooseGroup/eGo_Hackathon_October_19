@@ -501,7 +501,7 @@
 		72DCAF0E23588B8100EAD63D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "http://192.168.66.26/api/v2/";
+				API_BASE_URL = "http://78.46.210.166:81/api/v2/";
 				API_KEY = ego;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -521,7 +521,7 @@
 		72DCAF0F23588B8100EAD63D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "http://192.168.66.26/api/v2/";
+				API_BASE_URL = "http://78.46.210.166:81/api/v2/";
 				API_KEY = ego;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
