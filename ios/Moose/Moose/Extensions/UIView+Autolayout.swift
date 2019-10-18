@@ -42,7 +42,7 @@ public extension AutoLayoutContainer {
         if edges.contains(.right) {
             constraints.append(trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -inset))
         }
-        constraints.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(constraints)
         return constraints
     }
 

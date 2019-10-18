@@ -106,4 +106,11 @@ class BookingTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let booking = bookings[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath) as! BookingTableViewCell
+        let detail = BookingDetailViewController(booking: booking, user: cell.bookingView.userModel!)
+        show(detail, sender: nil)
+    }
 }
