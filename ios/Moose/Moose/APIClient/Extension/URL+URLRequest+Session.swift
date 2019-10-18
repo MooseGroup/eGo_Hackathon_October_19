@@ -10,7 +10,7 @@ extension URL {
     func appendingQuery(_ query: [String: Any]) -> URL {
         let url = self
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            assertionFailure("Could not create urlComponents")
+            //assertionFailure("Could not create urlComponents")
             return url
         }
 
@@ -33,7 +33,7 @@ extension URL {
 extension URLRequest {
     mutating func updateHTTPBody(parameter: [String: Any]) {
         guard let jsonData: Data = try? JSONSerialization.data(withJSONObject: parameter, options: []) else {
-            assertionFailure("Could not serialize JSON")
+            //assertionFailure("Could not serialize JSON")
             return
         }
         setValue("application/json", forHTTPHeaderField: "Accept")

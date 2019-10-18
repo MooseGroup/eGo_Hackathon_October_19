@@ -10,7 +10,7 @@ extension Bundle {
 
         var baseURL: URL {
             guard let base = dict["API_BASE_URL"] as? String, !base.isEmpty else {
-                assertionFailure("BASE_URL must not be empty!")
+                //assertionFailure("BASE_URL must not be empty!")
                 return URL(string: "")!
             }
             return URL(string: base)!
@@ -18,7 +18,7 @@ extension Bundle {
 
         var apiKey: String {
             guard let token = dict["API_KEY"] as? String, !token.isEmpty else {
-                assertionFailure("API_KEY must not be empty!")
+               // assertionFailure("API_KEY must not be empty!")
                 return ""
             }
             return token
