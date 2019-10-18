@@ -26,6 +26,7 @@ enum Result<T> {
 extension Decodable {
     static func decode(_ result: Result<NetworkClient.Response>) -> Result<Self> {
         guard let response = result.value else {
+            assertionFailure("Error decoding \(String(describing: result.error))")
             return .failure(result.error ?? SerializationError.emptyResult)
         }
         do {

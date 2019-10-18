@@ -51,9 +51,8 @@ class BookingDetailViewController: UIViewController {
     }
     
     func updateView() {
-        let seatsAvailable = Int((self.booking.seatsTotal ?? 4) - self.booking.seatsAvailable!)
-        self.seatMap.image = images[seatsAvailable]
-        
+        let seatsAvailable = booking.seatsTotal - (booking.seatsAvailable ?? 0)
+        seatMap.image = images[seatsAvailable]
         if isJoined {
             bookingButton.setTitle("Cancel ☹️", for: .normal)
             bookingButton.setImage(UIImage(systemName: "xmark.octagon"), for: .normal)

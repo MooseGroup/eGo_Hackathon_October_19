@@ -9,7 +9,7 @@ struct Booking: Codable {
     var city: String?
     var cityLat: Double?
     var cityLng: Double?
-    var seatsTotal: Int? = 4
+    var seatsTotal: Int = 4
     var seatsAvailable: Int?
     var displayName: String?
     var from: Date?
@@ -26,7 +26,7 @@ struct Booking: Codable {
                                 cityLng: cityLng ?? 0.0,
                                 displayName: displayName ?? "",
                                 seatsAvailable: seatsAvailable ?? 0,
-                                seatsTotal: seatsTotal ?? 0)
+                                seatsTotal: seatsTotal)
     }
 
     var updateRequest: UpdateRequest {

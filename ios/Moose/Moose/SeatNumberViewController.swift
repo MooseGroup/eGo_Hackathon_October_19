@@ -43,7 +43,7 @@ class SeatNumberViewController: UIViewController {
     @IBAction func updateSeatNumber(_ sender: Any) {
         let passengers = Int(stepper!.value)
         seatNumberLabel.text = "\(passengers)"
-        booking.seatsAvailable = booking.seatsTotal ?? 4 - passengers
+        booking.seatsAvailable = booking.seatsTotal - passengers
         imageView.image = images[passengers]
     }
     
