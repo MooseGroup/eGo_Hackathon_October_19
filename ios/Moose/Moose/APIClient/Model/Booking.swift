@@ -2,7 +2,7 @@ import Foundation
 
 struct Booking: Codable {
     enum Status: String, Codable {
-        case unknown, new, cancelled, active
+        case unknown, new, cancelled, active, finished
     }
     var id: String?
     var event: String?
@@ -28,6 +28,10 @@ struct Booking: Codable {
                                 seatsAvailable: seatsAvailable ?? 0,
                                 seatsTotal: seatsTotal ?? 0)
     }
+
+    var updateRequest: UpdateRequest {
+        return UpdateRequest(seatsAvailable: seatsAvailable ?? 0)
+    }
 }
 
 extension Booking {
@@ -40,5 +44,9 @@ extension Booking {
         let displayName: String
         let seatsAvailable: Int
         let seatsTotal: Int
+    }
+
+    struct UpdateRequest: Codable {
+        let seatsAvailable: Int
     }
 }

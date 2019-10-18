@@ -7,6 +7,7 @@ typealias HTTPHeader = [String: String]
 enum HTTPMethod: String {
     case POST
     case GET
+    case PATCH
     case HEAD
     case DELETE
     case PUT

@@ -2,7 +2,7 @@ import Foundation
 
 struct Vehicle: Codable {
     enum Status: String, Codable {
-        case unknown, charging, available
+        case unknown, charging, available, finished
     }
     var id: String?
     var country: String?

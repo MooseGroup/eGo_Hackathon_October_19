@@ -18,19 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         // Fetch vehcicles
         let client = APIClient()
-        client.vehicles.getVehicles { (result) in
-            guard let vehicle = result.value?.data.first else { return }
-            // New Booking
-            let booking = Booking(id: UUID().uuidString, event: "Event", city: "Aachen", cityLat: 50.1, cityLng: 6.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Seed", from: Date(), until: Date(), time: Date(), status: .new, vehicle: vehicle)
-            client.vehicles.createNewBooking(booking) { (res) in
-                print(res)
-                
+//        client.vehicles.getVehicles { (result) in
+//            guard let vehicle = result.value?.data.first else { return }
+//            // New Booking
+//            let booking = Booking(id: UUID().uuidString, event: "Event", city: "Aachen", cityLat: 50.1, cityLng: 6.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Seed", from: Date(), until: Date(), time: Date(), status: .new, vehicle: vehicle)
+//            client.vehicles.createNewBooking(booking) { (res) in
+//                print(res)
+//            }
+//        }
+
+        client.bookings.getBookings { (result) in
+            guard let firstbooking = result.value?.data.first else {
+                return
+            }
+            var booking = firstbooking
+            booking.seatsAvailable = 100
+            client.bookings.updateBookings(booking: booking) { (result) in
+                print(result.value?.data)
             }
         }
-//
-//        APIClient().bookings.getBookings { (result) in
-//            print(result)
-//        }
+
         return true
     }
 

@@ -34,7 +34,8 @@ extension Decodable {
             let model = try decoder.decode(self, from: response.data) as Self
             return .success(model)
         } catch let error {
-            assertionFailure("Error decoding \(error)")
+            let response = String(data: response.data, encoding: .utf8) ?? ""
+            assertionFailure("Error decoding \(response)\n\n \(error)")
             return .failure(error)
         }
     }
