@@ -26,11 +26,15 @@ class BookingTableViewController: UITableViewController {
     
     private func filterBookings() {
         if let filter = filter {
-            self.bookings = BookingTableViewController.mockBookings.filter { $0.displayName == filter}
+            self.bookings = BookingTableViewController.bookings(for: filter)
         } else {
             self.bookings = BookingTableViewController.mockBookings
         }
 
+    }
+    
+    static func bookings(for filter: String) -> [Booking] {
+        return BookingTableViewController.mockBookings.filter { $0.displayName == filter}
     }
     
     private var bookings: [Booking] = [] {
@@ -43,11 +47,11 @@ class BookingTableViewController: UITableViewController {
     
     static let mockBookings: [Booking] = {
         let b = [
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil)
         ]
         return b
     }()
@@ -105,5 +109,12 @@ class BookingTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let booking = bookings[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath) as! BookingTableViewCell
+        let detail = BookingDetailViewController(booking: booking, user: cell.bookingView.userModel!)
+        show(detail, sender: nil)
     }
 }

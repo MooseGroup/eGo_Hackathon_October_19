@@ -89,7 +89,8 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
             self.search?.view.isUserInteractionEnabled = true
             
             // TODO: Request all bookings from backend and see if a booking for this location is all ready available
-            if true {
+            let bookings = BookingTableViewController.bookings(for: model.descr!)
+            if bookings.count > 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
                     self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
                 }
