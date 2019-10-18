@@ -1,5 +1,10 @@
 # Hackathon by e.GO Digital Team Moose 🦌
 
+## Documents
+[Slides Keynote](Moose.key)
+
+[Slides PDF](Moose.pdf)
+
 ## Obective
 The task given was to enhance the e.GO Digital e.Base platform with following objectives:
 
