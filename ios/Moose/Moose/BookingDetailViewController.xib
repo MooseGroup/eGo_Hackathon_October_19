@@ -26,9 +26,9 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seat1" translatesAutoresizingMaskIntoConstraints="NO" id="rfU-U6-XEh">
-                    <rect key="frame" x="-30" y="381" width="474" height="200"/>
+                    <rect key="frame" x="-30" y="331" width="474" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="i7n-jN-RMx"/>
+                        <constraint firstAttribute="height" constant="300" id="i7n-jN-RMx"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-70-2iD">
@@ -74,7 +74,7 @@
                 <constraint firstItem="YhS-mm-35X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gfz-WE-DCp"/>
                 <constraint firstAttribute="bottom" secondItem="ysH-71-Cx4" secondAttribute="bottom" id="K31-4u-XcX"/>
                 <constraint firstItem="ysH-71-Cx4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="azO-4Z-6Kw"/>
-                <constraint firstItem="rfU-U6-XEh" firstAttribute="top" secondItem="YhS-mm-35X" secondAttribute="bottom" constant="200" id="gm2-lk-lfL"/>
+                <constraint firstItem="rfU-U6-XEh" firstAttribute="top" secondItem="YhS-mm-35X" secondAttribute="bottom" constant="150" id="gm2-lk-lfL"/>
                 <constraint firstItem="ysH-71-Cx4" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="jzv-qX-htZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z6W-70-2iD" secondAttribute="bottom" constant="46" id="lio-do-Ju9"/>
                 <constraint firstItem="YhS-mm-35X" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="p35-e2-k0c"/>

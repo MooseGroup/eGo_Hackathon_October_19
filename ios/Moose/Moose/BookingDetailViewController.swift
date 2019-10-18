@@ -51,8 +51,8 @@ class BookingDetailViewController: UIViewController {
     }
     
     func updateView() {
-        let seatsAvailable = booking.seatsTotal - (booking.seatsAvailable ?? 0)
-        seatMap.image = images[seatsAvailable]
+        let seatsInUse = booking.seatsTotal - (booking.seatsAvailable ?? 0)
+        seatMap.image = images[seatsInUse]
         if isJoined {
             bookingButton.setTitle("Cancel ☹️", for: .normal)
             bookingButton.setImage(UIImage(systemName: "xmark.octagon"), for: .normal)
@@ -61,6 +61,14 @@ class BookingDetailViewController: UIViewController {
             bookingButton.setTitle("Join", for: .normal)
             bookingButton.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
             bookingButton.superview!.backgroundColor = UIColor.systemBlue
+        }
+        
+        if booking.seatsAvailable == 0 && !isJoined {
+            bookingButton.isEnabled = false
+            bookingButton.superview!.backgroundColor = UIColor.systemGray
+
+        } else {
+            bookingButton.isEnabled = true
         }
         
         bookingView.model = booking
