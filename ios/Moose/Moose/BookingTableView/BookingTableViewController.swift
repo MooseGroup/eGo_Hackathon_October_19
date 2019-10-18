@@ -26,11 +26,15 @@ class BookingTableViewController: UITableViewController {
     
     private func filterBookings() {
         if let filter = filter {
-            self.bookings = BookingTableViewController.mockBookings.filter { $0.displayName == filter}
+            self.bookings = self.bookings(for: filter)
         } else {
             self.bookings = BookingTableViewController.mockBookings
         }
 
+    }
+    
+    func bookings(for filter: String) -> [Booking] {
+        return BookingTableViewController.mockBookings.filter { $0.displayName == filter}
     }
     
     private var bookings: [Booking] = [] {

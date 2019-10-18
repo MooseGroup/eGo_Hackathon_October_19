@@ -50,18 +50,43 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-3u-0de">
-                    <rect key="frame" x="179.5" y="816" width="55" height="30"/>
-                    <state key="normal" title="Confirm"/>
-                    <connections>
-                        <action selector="confirm:" destination="-1" eventType="primaryActionTriggered" id="x5l-wA-L5j"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2c-AO-ew1">
+                    <rect key="frame" x="154.5" y="788" width="105" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aB-dF-55y">
+                            <rect key="frame" x="20" y="0.0" width="65" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="jQV-oV-85a"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <state key="normal" title="Confirm">
+                                <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </state>
+                            <connections>
+                                <action selector="confirm:" destination="-1" eventType="touchUpInside" id="fbx-fh-gvK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="2aB-dF-55y" secondAttribute="bottom" id="0YE-Pt-7pW"/>
+                        <constraint firstItem="2aB-dF-55y" firstAttribute="top" secondItem="d2c-AO-ew1" secondAttribute="top" id="0cn-sv-qz8"/>
+                        <constraint firstItem="2aB-dF-55y" firstAttribute="leading" secondItem="d2c-AO-ew1" secondAttribute="leading" constant="20" id="Iof-GZ-9y9"/>
+                        <constraint firstItem="2aB-dF-55y" firstAttribute="centerX" secondItem="d2c-AO-ew1" secondAttribute="centerX" id="g8s-aC-ZXC"/>
+                        <constraint firstAttribute="trailing" secondItem="2aB-dF-55y" secondAttribute="trailing" constant="20" id="u4R-d3-lKK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="22"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="SAj-p6-h7m" firstAttribute="centerY" secondItem="3V1-5l-Ogr" secondAttribute="centerY" id="209-iX-SCQ"/>
                 <constraint firstItem="11i-Sf-6Hg" firstAttribute="top" secondItem="G6x-8o-deK" secondAttribute="bottom" constant="-30" id="30p-YL-8sW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d2c-AO-ew1" secondAttribute="bottom" constant="30" id="83G-vA-dEY"/>
                 <constraint firstItem="KmK-vu-Pa7" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="CYM-zM-9ax"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SAj-p6-h7m" secondAttribute="bottom" constant="16" id="LPy-Gk-wx5"/>
                 <constraint firstItem="KmK-vu-Pa7" firstAttribute="top" secondItem="11i-Sf-6Hg" secondAttribute="bottom" constant="-40" id="O9G-JP-hst"/>
@@ -70,9 +95,8 @@
                 <constraint firstItem="11i-Sf-6Hg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="b9g-Q1-llD"/>
                 <constraint firstItem="SAj-p6-h7m" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bga-0s-aSM"/>
                 <constraint firstItem="G6x-8o-deK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="39" id="c3T-eS-sJB"/>
-                <constraint firstItem="1Ct-3u-0de" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="j3b-lc-Asa"/>
                 <constraint firstItem="SAj-p6-h7m" firstAttribute="top" secondItem="KmK-vu-Pa7" secondAttribute="bottom" constant="30" id="jyX-FX-91S"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Ct-3u-0de" secondAttribute="bottom" constant="16" id="lGK-w6-h9K"/>
+                <constraint firstItem="d2c-AO-ew1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mbP-oD-pHI"/>
                 <constraint firstItem="3V1-5l-Ogr" firstAttribute="leading" secondItem="SAj-p6-h7m" secondAttribute="trailing" constant="19" id="xsD-fE-sZc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
