@@ -9,7 +9,49 @@
 import UIKit
 
 class BookingTableViewController: UITableViewController {
-        
+    var filter: String? {
+        didSet {
+            filterBookings()
+        }
+    }
+    init(filter: String?) {
+        self.filter = filter
+        super.init(nibName: "BookingTableViewController", bundle: nil)
+        filterBookings()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func filterBookings() {
+        if let filter = filter {
+            self.bookings = BookingTableViewController.mockBookings.filter { $0.displayName == filter}
+        } else {
+            self.bookings = BookingTableViewController.mockBookings
+        }
+
+    }
+    
+    private var bookings: [Booking] = [] {
+        didSet {
+            if self.isViewLoaded {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    static let mockBookings: [Booking] = {
+        let b = [
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+        ]
+        return b
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Join Rides"
@@ -28,7 +70,7 @@ class BookingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return bookings.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -37,31 +79,26 @@ class BookingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! BookingTableViewCell
-
+        let model = bookings[indexPath.row]
         // Mock user data as we don't have profiles in this demo.
         switch indexPath.row {
         case 0:
-            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
             cell.bookingView.userModel = userModel
         case 1:
-            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user1")!, "Sven Titgemeyer")
             cell.bookingView.userModel = userModel
         case 2:
-            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
             cell.bookingView.userModel = userModel
         case 3:
-            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
             cell.bookingView.userModel = userModel
         default:
-            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user0")!, "Angelo Cammalleri")
             cell.bookingView.userModel = userModel

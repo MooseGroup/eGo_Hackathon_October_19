@@ -20,11 +20,16 @@ class ExsistingBookingViewController: UIViewController {
         buttonBackground.layer.cornerRadius = buttonBackground.frame.height/2
     }
     
-    private let existingBookings: [Booking]
+    private var existingBookings: [Booking]
     private let searchModel: SearchModel?
     
     init(existingBookings: [Booking], searchModel: SearchModel?) {
         self.existingBookings = existingBookings
+        if let searchModel = searchModel {
+            self.existingBookings = existingBookings.filter({ (booking) -> Bool in
+                return booking.displayName == searchModel.name
+            })
+        }
         self.searchModel = searchModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,7 +40,7 @@ class ExsistingBookingViewController: UIViewController {
     
     fileprivate func setUpChildTableView() {
         // Create booking table view
-        let bookingTableViewController = BookingTableViewController(nibName: "BookingTableViewController", bundle: nil)
+        let bookingTableViewController = BookingTableViewController(filter: searchModel?.descr)
         
         // Add its controller as a child so we don't lose the reference!
         addChild(bookingTableViewController)

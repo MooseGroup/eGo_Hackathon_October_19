@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         let tab = UITabBarController()
         
-        let existing = BookingTableViewController()
+        let existing = BookingTableViewController(filter: nil)
         let existingNav = UINavigationController(rootViewController: existing)
         existingNav.navigationBar.prefersLargeTitles = true
         existingNav.tabBarItem.image = UIImage(systemName: "flame")
