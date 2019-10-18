@@ -15,7 +15,7 @@ services:
     env_file: .env
     image: node:dubnium-alpine
     ports:
-      - "80:80"
+      - "81:80"
       - "8080:8080"
       - "9229:9229"
     volumes:
