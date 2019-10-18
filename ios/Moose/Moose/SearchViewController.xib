@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,22 +21,38 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKi-aq-8Mk">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ZF-CR-VrU">
-                            <rect key="frame" x="16" y="20" width="343" height="34"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <action selector="refreshTableView:" destination="-1" eventType="editingChanged" id="aLQ-Ri-WxD"/>
-                                <outlet property="delegate" destination="-1" id="7Lr-Sx-kFs"/>
-                            </connections>
-                        </textField>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z03-TQ-jgI">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YlA-T4-xK1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ZF-CR-VrU">
+                                        <rect key="frame" x="16" y="20" width="343" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <action selector="refreshTableView:" destination="-1" eventType="editingChanged" id="aLQ-Ri-WxD"/>
+                                            <outlet property="delegate" destination="-1" id="7Lr-Sx-kFs"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9ZF-CR-VrU" secondAttribute="bottom" constant="21" id="7E0-Se-DdC"/>
+                                    <constraint firstItem="9ZF-CR-VrU" firstAttribute="leading" secondItem="YlA-T4-xK1" secondAttribute="leading" constant="16" id="IAz-Cs-GHg"/>
+                                    <constraint firstItem="9ZF-CR-VrU" firstAttribute="top" secondItem="YlA-T4-xK1" secondAttribute="top" constant="20" id="M6R-ag-Yam"/>
+                                    <constraint firstAttribute="trailing" secondItem="9ZF-CR-VrU" secondAttribute="trailing" constant="16" id="X6Z-21-x9b"/>
+                                </constraints>
+                            </view>
+                            <blurEffect style="systemChromeMaterial"/>
+                        </visualEffectView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="9ZF-CR-VrU" firstAttribute="top" secondItem="sKi-aq-8Mk" secondAttribute="top" constant="20" id="KpV-gy-mYq"/>
-                        <constraint firstAttribute="trailing" secondItem="9ZF-CR-VrU" secondAttribute="trailing" constant="16" id="eA8-gc-jeo"/>
-                        <constraint firstItem="9ZF-CR-VrU" firstAttribute="leading" secondItem="sKi-aq-8Mk" secondAttribute="leading" constant="16" id="eFK-pf-vgH"/>
-                        <constraint firstAttribute="bottom" secondItem="9ZF-CR-VrU" secondAttribute="bottom" constant="21" id="j3n-12-zIB"/>
+                        <constraint firstAttribute="trailing" secondItem="z03-TQ-jgI" secondAttribute="trailing" id="FbE-TA-bFh"/>
+                        <constraint firstItem="z03-TQ-jgI" firstAttribute="top" secondItem="sKi-aq-8Mk" secondAttribute="top" id="L22-5b-E0n"/>
+                        <constraint firstAttribute="bottom" secondItem="z03-TQ-jgI" secondAttribute="bottom" id="dOY-H5-H12"/>
+                        <constraint firstItem="z03-TQ-jgI" firstAttribute="leading" secondItem="sKi-aq-8Mk" secondAttribute="leading" id="ns4-9A-OUk"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ymz-hX-8bW">
