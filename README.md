@@ -5,7 +5,7 @@
 
 [Slides PDF](Moose.pdf)
 
-## Obective
+## Objective
 The task given was to enhance the e.GO Digital e.Base platform with following objectives:
 
 * Increase usage of station based car sharing in e.Base supporting settlements
