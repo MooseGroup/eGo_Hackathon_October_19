@@ -273,6 +273,6 @@ export class Controller extends APIv2VehicleControllerBase {
                 return await database.vehicleBookingToJSON(NEW_DOC, db);
             };
            return CREATE_BOOKING();
-        }
+        })
     }
 }
