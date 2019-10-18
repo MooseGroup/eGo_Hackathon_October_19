@@ -64,9 +64,9 @@ class BookingView: UIView {
             endDateLabel.text = "\(BookingView.timeFormatter.string(from: model!.from!)) - \(BookingView.timeFormatter.string(from: model!.until!))"
             
             if model!.seatsAvailable! == 1 {
-                remainingSeatsLabel.text = "\(model!.seatsAvailable!) seat is still free!"
+                remainingSeatsLabel.text = "\(model!.seatsAvailable!) seat is still available!"
             } else if model!.seatsAvailable! > 0 {
-                remainingSeatsLabel.text = "\(model!.seatsAvailable!) seats are still free!"
+                remainingSeatsLabel.text = "\(model!.seatsAvailable!) seats are still available!"
             } else {
                remainingSeatsLabel.text = "No more seats available."
             }
