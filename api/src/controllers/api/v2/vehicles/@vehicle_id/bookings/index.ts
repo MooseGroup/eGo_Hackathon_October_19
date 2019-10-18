@@ -273,45 +273,7 @@ export class Controller extends APIv2VehicleControllerBase {
                 return await database.vehicleBookingToJSON(NEW_DOC, db);
             };
 
-            let latestBooking = await db.VehicleBookings
-                .findOne({
-                    '$and': [
-                        {
-                            '$or': [
-                                {
-                                    'status': 'active',
-                                },
-                                {
-                                    'status': 'new',
-                                }
-                            ]
-                        },
-                        {
-                            'vehicle_id': req.vehicle.id,
-                        }
-                    ],
-                })
-                .sort({
-                    'time': -1,
-                    '_id': -1,
-                })
-                .exec();
-            if (!latestBooking) {
 
-
-                return CREATE_BOOKING();
-            }
-
-            return HttpResult.Conflict((req: ApiV2VehicleRequest, res: ApiV2VehicleResponse) => {
-                return res.json({
-                    success: false,
-                    data: `There is already a booking (${
-                        latestBooking.id
-                        }) with status '${
-                        egoose.normalizeString(latestBooking.status)
-                        }'!`,
-                });
-            });
-        }, true);
+           return CREATE_BOOKING();
     }
 }
