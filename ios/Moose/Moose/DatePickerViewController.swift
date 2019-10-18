@@ -8,17 +8,16 @@
 
 import UIKit
 
-class DatePickerViewController: UITableViewController {
+class DatePickerViewController: UIViewController {
     @IBOutlet var startPicker: UIDatePicker!
-    @IBOutlet var endPicker: UIDatePicker!
     @IBOutlet var bookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
+        startPicker.minimumDate = Date()
         startPicker.date = Date()
-        endPicker.date = Date().addingTimeInterval(3600*2)
         updateDates(self)
+        self.navigationItem.largeTitleDisplayMode = .always
     }
     
     private var booking: Booking!
@@ -35,7 +34,7 @@ class DatePickerViewController: UITableViewController {
     
     @IBAction func updateDates(_ sender: Any) {
         booking.from = startPicker.date
-        booking.until = endPicker.date
+        booking.until = startPicker.date.addingTimeInterval(3600)
     }
     
     @IBAction func book(_ sender: Any) {

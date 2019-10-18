@@ -18,6 +18,7 @@ class ExsistingBookingViewController: UIViewController {
         title = "Existing Bookings"
         setUpChildTableView()
         buttonBackground.layer.cornerRadius = buttonBackground.frame.height/2
+        self.navigationItem.largeTitleDisplayMode = .always
     }
     
     private var existingBookings: [Booking]
