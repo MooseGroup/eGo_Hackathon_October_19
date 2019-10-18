@@ -43,11 +43,11 @@ class BookingTableViewController: UITableViewController {
     
     static let mockBookings: [Booking] = {
         let b = [
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
+            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil)
         ]
         return b
     }()
