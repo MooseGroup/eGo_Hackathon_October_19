@@ -21,9 +21,9 @@ class ExsistingBookingViewController: UIViewController {
     }
     
     private let existingBookings: [Booking]
-    private let searchModel: SearchModel
+    private let searchModel: SearchModel?
     
-    init(existingBookings: [Booking], searchModel: SearchModel) {
+    init(existingBookings: [Booking], searchModel: SearchModel?) {
         self.existingBookings = existingBookings
         self.searchModel = searchModel
         super.init(nibName: nil, bundle: nil)
@@ -47,6 +47,7 @@ class ExsistingBookingViewController: UIViewController {
     }
 
     @IBAction func createNewBooking(_ sender: Any) {
+        guard let searchModel = searchModel else { return }
         // TODO: Add location to booking.
         var newBooking = Booking()
         newBooking.cityLat = searchModel.location!.latitude

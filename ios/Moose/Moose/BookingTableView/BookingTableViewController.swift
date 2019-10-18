@@ -12,10 +12,13 @@ class BookingTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Join Rides"
         tableView.register(BookingTableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         
+        if self.parent is ExsistingBookingViewController /* Lulululu */ {
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        }
     }
 
     // MARK: - Table view data source
@@ -25,7 +28,7 @@ class BookingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,6 +52,11 @@ class BookingTableViewController: UITableViewController {
             cell.bookingView.userModel = userModel
         case 2:
             let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
+            cell.bookingView.model = model
+            let userModel: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
+            cell.bookingView.userModel = userModel
+        case 3:
+            let model = Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date(), time: Date(), status: .active, vehicle: nil)
             cell.bookingView.model = model
             let userModel: (image: UIImage, name: String) = (UIImage(named: "user2")!, "Christian Menschel")
             cell.bookingView.userModel = userModel
