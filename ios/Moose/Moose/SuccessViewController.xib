@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +23,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="e6L-34-im1">
-                    <rect key="frame" x="37" y="206" width="340" height="200"/>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="e6L-34-im1">
+                    <rect key="frame" x="0.0" y="61" width="394" height="500"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="FlW-5s-p0L"/>
+                        <constraint firstAttribute="height" constant="500" id="FlW-5s-p0L"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="oWO-yM-DI1" appends="YES" id="EBm-Uq-yn7"/>
@@ -41,14 +41,23 @@
                         <action selector="backToOverview:" destination="-1" eventType="primaryActionTriggered" id="QYe-4X-2BQ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! Your booking is now visible for others. We will notify you once someone joins your ride." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="771-PB-oPz">
+                    <rect key="frame" x="20" y="461" width="374" height="95.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="PMI-Fu-AIn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="3ne-Tk-r8o"/>
-                <constraint firstItem="e6L-34-im1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="37" id="Gx3-At-Bia"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="771-PB-oPz" secondAttribute="trailing" constant="20" id="6wE-pp-KVO"/>
+                <constraint firstItem="e6L-34-im1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Gx3-At-Bia"/>
                 <constraint firstItem="PMI-Fu-AIn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="33" id="KTe-v2-Qkw"/>
-                <constraint firstItem="e6L-34-im1" firstAttribute="top" secondItem="PMI-Fu-AIn" secondAttribute="bottom" constant="65" id="Zin-TB-r2z"/>
-                <constraint firstItem="e6L-34-im1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="sF3-fD-9tQ"/>
+                <constraint firstItem="e6L-34-im1" firstAttribute="top" secondItem="PMI-Fu-AIn" secondAttribute="bottom" constant="-80" id="Zin-TB-r2z"/>
+                <constraint firstItem="771-PB-oPz" firstAttribute="top" secondItem="e6L-34-im1" secondAttribute="bottom" constant="-100" id="alD-km-VtL"/>
+                <constraint firstItem="e6L-34-im1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" constant="-10" id="sF3-fD-9tQ"/>
+                <constraint firstItem="771-PB-oPz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="sty-iI-ccw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
@@ -60,6 +69,6 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="car" width="1280" height="720"/>
+        <image name="trophy" width="1024" height="1024"/>
     </resources>
 </document>
