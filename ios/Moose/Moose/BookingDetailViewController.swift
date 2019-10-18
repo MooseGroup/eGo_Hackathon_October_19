@@ -17,7 +17,7 @@ class BookingDetailViewController: UIViewController {
         return bookingView
     }()
     @IBOutlet var bookingButton: UIButton!
-    
+    private let api = APIClient()
     private var booking: Booking
     private let user: (image: UIImage, name: String)?
     @IBOutlet var seatMap: UIImageView!
@@ -80,5 +80,8 @@ class BookingDetailViewController: UIViewController {
     }
     @IBAction func join(_ sender: Any) {
         isJoined.toggle()
+        api.bookings.updateBookings(booking) { (result) in
+            print(result)
+        }
     }
 }

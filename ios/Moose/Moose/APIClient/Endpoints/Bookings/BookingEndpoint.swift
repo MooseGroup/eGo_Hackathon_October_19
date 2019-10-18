@@ -12,7 +12,7 @@ extension BookingsEndpoint {
     }
 
     @discardableResult
-    func updateBookings(booking: Booking, completion: @escaping (Result<APIResponse<Booking>>) -> Void) -> URLRequest {
+    func updateBookings(_ booking: Booking, completion: @escaping (Result<APIResponse<Booking>>) -> Void) -> URLRequest {
         let id = booking.id ?? ""
         let body = booking.updateRequest
         return Endpoint("bookings/\(id)", method: .PATCH, body: body).request(client: networkClient, completion)

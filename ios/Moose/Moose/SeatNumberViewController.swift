@@ -12,7 +12,7 @@ class SeatNumberViewController: UIViewController {
 
     @IBOutlet var seatNumberLabel: UILabel!
     let formatter = NumberFormatter()
-    
+    let api = APIClient()
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var stepper: UIStepper!
     
@@ -48,7 +48,10 @@ class SeatNumberViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
-        let success = SuccessViewController()
-        show(success, sender: nil)
+        api.vehicles.createNewBooking(booking) {[weak self] (result) in
+            guard let self = self else { return }
+            let success = SuccessViewController()
+            self.show(success, sender: nil)
+        }
     }
 }

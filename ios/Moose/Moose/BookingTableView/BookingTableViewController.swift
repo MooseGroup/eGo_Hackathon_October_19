@@ -9,65 +9,59 @@
 import UIKit
 
 class BookingTableViewController: UITableViewController {
-    var filter: String? {
-        didSet {
-            filterBookings()
-        }
-    }
+    let apiClient = APIClient()
+    lazy var activityView = UIActivityIndicatorView()
+    var filter: String?
     init(filter: String?) {
         self.filter = filter
         super.init(nibName: "BookingTableViewController", bundle: nil)
-        filterBookings()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func filterBookings() {
-        if let filter = filter {
-            self.bookings = BookingTableViewController.bookings(for: filter)
-        } else {
-            self.bookings = BookingTableViewController.mockBookings
-        }
 
-    }
-    
-    static func bookings(for filter: String) -> [Booking] {
-        return BookingTableViewController.mockBookings.filter { $0.displayName == filter}
-    }
-    
     private var bookings: [Booking] = [] {
         didSet {
-            if self.isViewLoaded {
-                self.tableView.reloadData()
+            if isViewLoaded {
+                tableView.reloadData()
             }
         }
     }
-    
-    static let mockBookings: [Booking] = {
-        let b = [
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Seeed Concert", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 3, displayName: "CocoaHeads Aachen", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Aldi", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 2, displayName: "Kindergarten Sonnenschein", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil),
-            Booking(id: "", event: "", city: "", cityLat: 0.0, cityLng: 0.0, seatsTotal: 4, seatsAvailable: 1, displayName: "Badesee", from: Date(), until: Date().addingTimeInterval(3600), time: Date(), status: .active, vehicle: nil)
-        ]
-        return b
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Join Rides"
+        title = "Join Rides"
         tableView.register(BookingTableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        
-        if self.parent is ExsistingBookingViewController /* Lulululu */ {
+        if parent is ExsistingBookingViewController /* Lulululu */ {
             tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         }
+
+        tableView.tableFooterView = activityView
+        activityView.hidesWhenStopped = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        updateDataSource()
     }
 
     // MARK: - Table view data source
+
+    private func updateDataSource() {
+        activityView.startAnimating()
+        apiClient.bookings.getBookings {[weak self] (result) in
+            guard let self = self else { return }
+            self.activityView.stopAnimating()
+            guard var bookings = result.value?.data else { return }
+            if let filter = self.filter {
+                bookings = bookings.filter {$0.displayName == filter}
+            }
+            self.bookings = bookings
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

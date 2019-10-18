@@ -56,9 +56,11 @@ class ExsistingBookingViewController: UIViewController {
         guard let searchModel = searchModel else { return }
         // TODO: Add location to booking.
         var newBooking = Booking()
+        newBooking.vehicle = AppDelegate.vehicle
         newBooking.cityLat = searchModel.location!.latitude
         newBooking.cityLng = searchModel.location!.longitude
         newBooking.displayName = searchModel.descr
+        newBooking.city = AppDelegate.city
         let timeAndDateViewController = DatePickerViewController.makeNew(booking: newBooking)
         show(timeAndDateViewController, sender: self)
     }

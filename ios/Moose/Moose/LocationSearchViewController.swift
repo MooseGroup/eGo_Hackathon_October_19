@@ -85,20 +85,20 @@ class LocationSearchViewController: UIViewController, CLLocationManagerDelegate 
     /// Check wether we have exsisting bookings and continue with our flow accordingly.
     private func processModelAndContinue(model: SearchModel) {
         self.search?.view.isUserInteractionEnabled = false
-        DispatchQueue.main.async {
+        self.api.bookings.getBookings {[weak self] result in
+            guard let self = self else { return }
             self.search?.view.isUserInteractionEnabled = true
-            
-            // TODO: Request all bookings from backend and see if a booking for this location is all ready available
-            let bookings = BookingTableViewController.bookings(for: model.descr!)
-            if bookings.count > 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
-                    self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
-                }
+            guard let bookings = result.value?.data else { return }
+            let hasBooking = bookings.firstIndex(where: {$0.displayName == model.descr}) != nil
+            if hasBooking {
+                self.show(ExsistingBookingViewController(existingBookings: [], searchModel: model), sender: self)
             } else {
                 var newBooking = Booking()
+                newBooking.vehicle = AppDelegate.vehicle
                 newBooking.cityLat = model.location!.latitude
                 newBooking.cityLng = model.location!.longitude
-                newBooking.city = model.descr
+                newBooking.displayName = model.descr
+                newBooking.city = AppDelegate.city
                 let timeAndDateViewController = DatePickerViewController.makeNew(booking: newBooking)
                 self.show(timeAndDateViewController, sender: self)
             }
