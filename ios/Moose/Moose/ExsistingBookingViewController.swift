@@ -15,7 +15,7 @@ class ExsistingBookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Existing Bookings"
+        title = "Existing Rides"
         setUpChildTableView()
         buttonBackground.layer.cornerRadius = buttonBackground.frame.height/2
         self.navigationItem.largeTitleDisplayMode = .always
