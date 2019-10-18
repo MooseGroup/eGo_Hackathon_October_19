@@ -21,6 +21,7 @@ class BookingDetailViewController: UIViewController {
     private var booking: Booking
     private let user: (image: UIImage, name: String)?
     @IBOutlet var seatMap: UIImageView!
+    @IBOutlet var confettiView: ConfettiView!
     
     let images: [Int:UIImage] = {
         let i1 = #imageLiteral(resourceName: "seat1")
@@ -70,6 +71,7 @@ class BookingDetailViewController: UIViewController {
         didSet {
             if isJoined {
                 self.booking.seatsAvailable! -= 1
+                self.confettiView.emit(with: [.text("🦌")])
             } else {
                 self.booking.seatsAvailable! += 1
             }

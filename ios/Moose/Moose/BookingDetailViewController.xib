@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="bookingButton" destination="70g-Hl-to2" id="Jve-tu-8XC"/>
                 <outlet property="bookingViewContainer" destination="YhS-mm-35X" id="Q8n-MJ-eQP"/>
+                <outlet property="confettiView" destination="ysH-71-Cx4" id="lE0-lK-CVO"/>
                 <outlet property="seatMap" destination="rfU-U6-XEh" id="2Kg-YJ-jZn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -59,14 +60,22 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysH-71-Cx4" customClass="ConfettiView" customModule="Moose" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ysH-71-Cx4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8oz-fi-cVH"/>
                 <constraint firstItem="z6W-70-2iD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9vK-NK-HFY"/>
                 <constraint firstItem="rfU-U6-XEh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="-30" id="DF5-Z9-ljq"/>
                 <constraint firstItem="rfU-U6-XEh" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="F1b-7A-Udr"/>
                 <constraint firstItem="YhS-mm-35X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gfz-WE-DCp"/>
+                <constraint firstAttribute="bottom" secondItem="ysH-71-Cx4" secondAttribute="bottom" id="K31-4u-XcX"/>
+                <constraint firstItem="ysH-71-Cx4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="azO-4Z-6Kw"/>
                 <constraint firstItem="rfU-U6-XEh" firstAttribute="top" secondItem="YhS-mm-35X" secondAttribute="bottom" constant="200" id="gm2-lk-lfL"/>
+                <constraint firstItem="ysH-71-Cx4" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="jzv-qX-htZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z6W-70-2iD" secondAttribute="bottom" constant="46" id="lio-do-Ju9"/>
                 <constraint firstItem="YhS-mm-35X" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="p35-e2-k0c"/>
                 <constraint firstItem="YhS-mm-35X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pup-S6-cWn"/>
