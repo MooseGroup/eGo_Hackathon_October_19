@@ -39,7 +39,7 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "@egodigital/egoose": "^6.12.0",
+    "@egodigital/egoose": "^6.13.0",
     "@egodigital/express-controllers": "^5.3.0",
     "file-type": "^12.3.0",
     "fs-extra": "^8.1.0",
